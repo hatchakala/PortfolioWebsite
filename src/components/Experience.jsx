@@ -49,7 +49,7 @@ const Experience = () => {
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800"
+                  className="mr-2 mt-4 rounded bg-[#2965F1] px-2 py-1 text-sm font-medium text-white"
                 >
                   {tech}
                 </span>
@@ -63,3 +63,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

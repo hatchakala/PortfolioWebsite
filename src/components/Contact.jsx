@@ -1,6 +1,7 @@
 // import { CONTACT } from "../constants";
 // import { motion } from "framer-motion";
 // import { useState } from "react";
+// import ContactImage from "../assets/ContactMeWesbiteVisual.png"; // Adjust the path as necessary
 
 // const Contact = () => {
 //   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@
 //   };
 
 //   return (
-//     <div className="flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
+//     <div id="contact" className="flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
 //       {/* Left Side - Contact Form */}
 //       <div className="md:w-1/2 w-full p-8 text-white">
 //         <motion.h2
@@ -92,22 +93,21 @@
 //         </motion.form>
 //       </div>
 
-//       {/* Right Side - 3D Globe (or any other visual element) */}
+//       {/* Right Side - Visual Element */}
 //       <div className="md:w-1/2 w-full flex justify-center items-center">
 //         <motion.div
 //           whileInView={{ opacity: 1, scale: 1 }}
 //           initial={{ opacity: 0, scale: 0.8 }}
 //           transition={{ duration: 1 }}
 //         >
-//           {/* Replace with your 3D globe or other visual element */}
-//           <img src="/path-to-globe-image-or-component" alt="3D Globe" className="w-96 h-96 object-contain" />
+//           <img src={ContactImage} alt="3D Globe" className="w-96 h-96 object-contain" />
 //         </motion.div>
 //       </div>
 //     </div>
 //   );
 // };
 
-// export default Contact; 
+// export default Contact;
 
 import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
@@ -162,7 +162,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="w-full px-4 py-2 bg-neutral-800 text-white border border-neutral-700 rounded"
+              className="w-full px-4 py-2 bg-[#243447] text-[#D1D5DB] placeholder-[#D1D5DB] border border-[#8B5CF6] rounded"
             />
           </div>
 
@@ -177,7 +177,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className="w-full px-4 py-2 bg-neutral-800 text-white border border-neutral-700 rounded"
+              className="w-full px-4 py-2 bg-[#243447] text-[#D1D5DB] placeholder-[#D1D5DB] border border-[#8B5CF6] rounded"
             />
           </div>
 
@@ -191,7 +191,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
-              className="w-full px-4 py-2 bg-neutral-800 text-white border border-neutral-700 rounded h-32"
+              className="w-full px-4 py-2 bg-[#243447] text-[#D1D5DB] placeholder-[#D1D5DB] border border-[#8B5CF6] rounded h-32"
             />
           </div>
 
@@ -219,3 +219,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
