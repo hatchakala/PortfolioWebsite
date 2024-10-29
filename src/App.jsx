@@ -45,24 +45,26 @@ const App = () => {
 
       <div className="container mx-auto px-8">
         <Navbar />
-        <Hero />
         
-        {/* Add border for section separator */}
+        {/* Hero section with border below */}
+        <div className="border-b-4 border-[#2965F1] pb-24">
+          <Hero />
+        </div>
+
+        {/* About section with border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <About />
         </div>
 
-        {/* Add border for section separator */}
-        <div className="border-b-4 border-[#2965F1] pb-24">
-          <Technologies />
-        </div>
+        {/* Technologies section without extra border below */}
+        <Technologies />
 
-        {/* Add border for section separator */}
+        {/* Experience section with border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <Experience />
         </div>
 
-        {/* Add border for section separator */}
+        {/* Projects section with border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <Projects />
         </div>
@@ -74,4 +76,5 @@ const App = () => {
 };
 
 export default App;
+
 
