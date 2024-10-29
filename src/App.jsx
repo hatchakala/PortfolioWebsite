@@ -15,18 +15,37 @@
 
 //       <div className="container mx-auto px-8">
 //         <Navbar />
-//         <Hero />
-//         <About />
+        
+//         {/* Hero section with border below */}
+//         <div className="border-b-4 border-[#2965F1] pb-24">
+//           <Hero />
+//         </div>
+
+//         {/* About section with border below */}
+//         <div className="border-b-4 border-[#2965F1] pb-24">
+//           <About />
+//         </div>
+
+//         {/* Technologies section without extra border below */}
 //         <Technologies />
-//         <Experience />
-//         <Projects />
+
+//         {/* Experience section with border below */}
+//         <div className="border-b-4 border-[#2965F1] pb-24">
+//           <Experience />
+//         </div>
+
+//         {/* Projects section with border below */}
+//         <div className="border-b-4 border-[#2965F1] pb-24">
+//           <Projects />
+//         </div>
+
 //         <Contact />
 //       </div>
 //     </div>
 //   );
 // };
 
-// export default App; // Ensure this line is here
+// export default App;
 
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -46,25 +65,25 @@ const App = () => {
       <div className="container mx-auto px-8">
         <Navbar />
         
-        {/* Hero section with border below */}
+        {/* Hero section with blue border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <Hero />
         </div>
 
-        {/* About section with border below */}
-        <div className="border-b-4 border-[#2965F1] pb-24">
+        {/* Adjusted About section with blue border higher up */}
+        <div className="border-b-4 border-[#2965F1] pb-16">
           <About />
         </div>
 
-        {/* Technologies section without extra border below */}
+        {/* Technologies section without extra border */}
         <Technologies />
 
-        {/* Experience section with border below */}
+        {/* Experience section with blue border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <Experience />
         </div>
 
-        {/* Projects section with border below */}
+        {/* Projects section with blue border below */}
         <div className="border-b-4 border-[#2965F1] pb-24">
           <Projects />
         </div>
@@ -76,5 +95,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
