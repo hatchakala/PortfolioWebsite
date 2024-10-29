@@ -59,6 +59,13 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "React", "JavaScript", "C++"],
   },
   {
+    title: "Delay Detective",
+    image: project1,
+    description:
+      "A web application that utilizes NJTransit data to predict train delays. This tool reads .csv files provided by NJTransit, processes the data to train a RandomForestRegression model, and presents the results in an interactive and visually engaging React interface. It informs the user with the number of delayed trains, allowing users to gain insights into transit patterns and anticipate service disruptions.",
+    technologies: ["HTML", "CSS", "React", "JavaScript", "C++"],
+  },
+  {
     title: "FableCaster",
     image: project2,
     description:
