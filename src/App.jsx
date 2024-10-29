@@ -10,7 +10,7 @@
 //   return (
 //     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
 //       <div className="fixed top-0 -z-10 h-full w-full">
-//         <div className="absolute top-0 z-[-2] h-screen w-screen bg-navy"></div> {/* or bg-[#001F3F] */}
+//         <div className="absolute top-0 z-[-2] h-screen w-screen bg-navy"></div>
 //       </div>
 
 //       <div className="container mx-auto px-8">
@@ -26,7 +26,8 @@
 //   );
 // };
 
-// src/App.jsx
+// export default App; // Ensure this line is here
+
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -45,14 +46,32 @@ const App = () => {
       <div className="container mx-auto px-8">
         <Navbar />
         <Hero />
-        <About />
-        <Technologies />
-        <Experience />
-        <Projects />
+        
+        {/* Add border for section separator */}
+        <div className="border-b-4 border-[#2965F1] pb-24">
+          <About />
+        </div>
+
+        {/* Add border for section separator */}
+        <div className="border-b-4 border-[#2965F1] pb-24">
+          <Technologies />
+        </div>
+
+        {/* Add border for section separator */}
+        <div className="border-b-4 border-[#2965F1] pb-24">
+          <Experience />
+        </div>
+
+        {/* Add border for section separator */}
+        <div className="border-b-4 border-[#2965F1] pb-24">
+          <Projects />
+        </div>
+
         <Contact />
       </div>
     </div>
   );
 };
 
-export default App; // Ensure this line is here
+export default App;
+
