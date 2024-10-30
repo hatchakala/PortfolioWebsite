@@ -125,10 +125,15 @@ const Hero = () => {
                   loop: false,
                   cursor: "|",
                   delay: 75,
-                  onComplete: () => {
-                    // Hide the cursor after the name finishes typing
-                    document.querySelector(".Typewriter__cursor").style.display = "none";
-                  },
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString("Hardhik Atchakala")
+                    .callFunction(() => {
+                      // Hide the cursor after typing is complete without affecting the name
+                      document.querySelector(".Typewriter__cursor").style.display = "none";
+                    })
+                    .start();
                 }}
               />
             </motion.div>
@@ -140,7 +145,6 @@ const Hero = () => {
             >
               Full Stack Developer
             </motion.span>
-            {/* Reduced spacing between Full Stack Developer and description */}
             <motion.p
               variants={container(1)}
               initial="hidden"
@@ -149,7 +153,6 @@ const Hero = () => {
             >
               {HERO_CONTENT}
             </motion.p>
-            {/* Added resume button */}
             <motion.a
               href="https://drive.google.com/file/d/1BgGa8OFSlt3ORBMmUVNKnQZPlkoqt6k3/view"
               target="_blank"
@@ -180,4 +183,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
