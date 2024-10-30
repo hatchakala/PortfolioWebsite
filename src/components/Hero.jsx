@@ -1,6 +1,7 @@
 // import { HERO_CONTENT } from "../constants";
 // import profilePic from "../assets/HardhikMainWebsitePFP.png";
 // import { motion } from "framer-motion";
+// import Typewriter from "typewriter-effect";
 
 // const container = (delay) => ({
 //   hidden: { x: -100, opacity: 0 },
@@ -17,14 +18,25 @@
 //       <div className="flex flex-wrap">
 //         <div className="w-full lg:w-1/2">
 //           <div className="flex flex-col items-center lg:items-start">
-//             <motion.h2
+//             <motion.div
 //               variants={container(0)}
 //               initial="hidden"
 //               animate="visible"
 //               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
 //             >
-//               Hardhik Atchakala
-//             </motion.h2>
+//               <Typewriter
+//                 options={{
+//                   strings: ["Hardhik Atchakala"],
+//                   autoStart: true,
+//                   loop: false,
+//                   cursor: "|",
+//                   delay: 75,
+//                   onComplete: (instance) => {
+//                     setTimeout(() => instance.stop(), 500);
+//                   },
+//                 }}
+//               />
+//             </motion.div>
 //             <motion.span
 //               variants={container(0.5)}
 //               initial="hidden"
@@ -107,9 +119,15 @@ const Hero = () => {
                   loop: false,
                   cursor: "|",
                   delay: 75,
-                  onComplete: (instance) => {
-                    setTimeout(() => instance.stop(), 500);
-                  },
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString("Hardhik Atchakala")
+                    .callFunction(() => {
+                      // Hides the cursor by targeting it directly after typing finishes
+                      document.querySelector(".Typewriter__cursor").style.display = "none";
+                    })
+                    .start();
                 }}
               />
             </motion.div>
@@ -161,4 +179,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
