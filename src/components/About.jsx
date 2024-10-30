@@ -44,8 +44,13 @@ const About = () => {
           <p className="my-2 py-4">{ABOUT_TEXT}</p>
         </motion.div>
       </div>
+
+      {/* Blue line separator */}
+      <hr style={{ border: '1px solid blue', margin: '20px 0' }} />
+      
     </div>
   );
 };
 
 export default About;
+
