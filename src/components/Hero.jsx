@@ -132,7 +132,10 @@ const Hero = () => {
                     .typeString("Hardhik Atchakala")
                     .callFunction(() => {
                       // Hide the cursor after typing is complete
-                      document.querySelector(".Typewriter__cursor").style.display = "none";
+                      const cursor = document.querySelector(".Typewriter__cursor");
+                      if (cursor) {
+                        cursor.style.display = "none";
+                      }
                     })
                     .start();
                 }}
