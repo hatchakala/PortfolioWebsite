@@ -118,7 +118,7 @@ const Hero = () => {
               animate="visible"
               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
             >
-              {/* Typewriter effect to print the name once without any wiping */}
+              {/* Typewriter effect to print the name */}
               <Typewriter
                 options={{
                   strings: ["Hardhik Atchakala"],
