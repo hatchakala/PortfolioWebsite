@@ -96,6 +96,7 @@ import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/HardhikMainWebsitePFP.png";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import { useState } from "react";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -107,6 +108,8 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  const [isTyped, setIsTyped] = useState(false);
+
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-36">
       <div className="flex flex-wrap">
@@ -118,28 +121,32 @@ const Hero = () => {
               animate="visible"
               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
             >
-              {/* Typewriter effect to print the name */}
-              <Typewriter
-                options={{
-                  strings: ["Hardhik Atchakala"],
-                  autoStart: true,
-                  loop: false,
-                  cursor: "|",
-                  delay: 75,
-                }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString("Hardhik Atchakala")
-                    .callFunction(() => {
-                      // Hide the cursor after typing is complete
-                      const cursor = document.querySelector(".Typewriter__cursor");
-                      if (cursor) {
-                        cursor.style.display = "none";
-                      }
-                    })
-                    .start();
-                }}
-              />
+              {/* Typewriter effect to print the name only the second time */}
+              {!isTyped && (
+                <Typewriter
+                  options={{
+                    strings: ["Hardhik Atchakala"],
+                    autoStart: true,
+                    loop: false,
+                    cursor: "|",
+                    delay: 75,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString("Hardhik Atchakala")
+                      .callFunction(() => {
+                        // Hide the cursor after typing is complete
+                        const cursor = document.querySelector(".Typewriter__cursor");
+                        if (cursor) {
+                          cursor.style.display = "none";
+                        }
+                        setIsTyped(true); // Mark as typed
+                      })
+                      .start();
+                  }}
+                />
+              )}
+              {isTyped && <span>Hardhik Atchakala</span>} {/* Show name after typing */}
             </motion.div>
             <motion.span
               variants={container(0.5)}
