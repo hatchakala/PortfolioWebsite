@@ -31,9 +31,15 @@
 //                   loop: false,
 //                   cursor: "|",
 //                   delay: 75,
-//                   onComplete: (instance) => {
-//                     setTimeout(() => instance.stop(), 500);
-//                   },
+//                 }}
+//                 onInit={(typewriter) => {
+//                   typewriter
+//                     .typeString("Hardhik Atchakala")
+//                     .callFunction(() => {
+//                       // Hides the cursor by targeting it directly after typing finishes
+//                       document.querySelector(".Typewriter__cursor").style.display = "none";
+//                     })
+//                     .start();
 //                 }}
 //               />
 //             </motion.div>
@@ -119,15 +125,10 @@ const Hero = () => {
                   loop: false,
                   cursor: "|",
                   delay: 75,
-                }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString("Hardhik Atchakala")
-                    .callFunction(() => {
-                      // Hides the cursor by targeting it directly after typing finishes
-                      document.querySelector(".Typewriter__cursor").style.display = "none";
-                    })
-                    .start();
+                  onComplete: () => {
+                    // Hide the cursor after the name finishes typing
+                    document.querySelector(".Typewriter__cursor").style.display = "none";
+                  },
                 }}
               />
             </motion.div>
@@ -179,3 +180,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
