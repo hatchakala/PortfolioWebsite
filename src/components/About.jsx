@@ -46,11 +46,11 @@ const About = () => {
       </div>
 
       {/* Blue line separator */}
-      <hr style={{ border: '1px solid blue', margin: '20px 0' }} />
-      
+      <div className="border-b border-blue-500 my-4" />
     </div>
   );
 };
 
 export default About;
+
 
