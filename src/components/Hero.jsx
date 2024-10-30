@@ -118,6 +118,7 @@ const Hero = () => {
               animate="visible"
               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
             >
+              {/* Typewriter effect to print the name once without any wiping */}
               <Typewriter
                 options={{
                   strings: ["Hardhik Atchakala"],
@@ -130,7 +131,7 @@ const Hero = () => {
                   typewriter
                     .typeString("Hardhik Atchakala")
                     .callFunction(() => {
-                      // Hide the cursor after typing is complete without affecting the name
+                      // Hide the cursor after typing is complete
                       document.querySelector(".Typewriter__cursor").style.display = "none";
                     })
                     .start();
@@ -183,5 +184,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 
