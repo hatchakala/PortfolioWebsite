@@ -59,14 +59,14 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "React", "JavaScript", "C++"],
   },
   {
-    title: "Deploy Detective",
+    title: "Delay Detective",
     image: project2,
     description:
       "A web application that utilizes NJTransit data to predict train delays. This tool reads .csv files provided by NJTransit, processes the data to train a RandomForestRegression model, and presents the results in an interactive and visually engaging React interface. It informs the user of the number of delayed trains, allowing users to gain insights into transit patterns and anticipate service disruptions.",
     technologies: ["Python", "Flask", "React", "HTML", "CSS", "JavaScript"],
   },
   {
-    title: "FableCaster",
+    title: "Fable Caster",
     image: project2,
     description:
       "Developed an interactive wizard bot leveraging ChatGPT APIs and ESP32 to generate personalized stories based on user-selected themes, with physical bot capabilities to express emotions and enhance the storytelling experience",

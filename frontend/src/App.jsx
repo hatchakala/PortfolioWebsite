@@ -71,7 +71,7 @@ const App = () => {
         </div>
 
         {/* Adjusted About section without border */}
-        <div className="pb-16">
+        <div className="border-b-4 border-[#2965F1] pb-24">
           <About />
         </div>
 
