@@ -132,11 +132,10 @@
 
 // export default Contact;
 
-import React from 'react';
-import Starfield from 'react-starfield';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import ContactImage from "../assets/ContactMeWesbiteVisual.png"; // Adjust the path as necessary
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Starfield from "react-starfield";
+import ContactImage from "../assets/ContactMeWesbiteVisual.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -152,28 +151,32 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-  
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(new FormData(form)).toString(),
     })
-      .then(() => alert("Message sent!"))
+      .then(() => {
+        alert("Message sent!");
+        setFormData({ name: "", email: "", message: "" }); // Clear the form
+      })
       .catch((error) => alert("Failed to send message: " + error));
   };
 
   return (
     <div id="contact" className="relative bg-[#243447]">
       {/* Starfield background */}
-      <Starfield
-        starCount={500}
-        starColor={[255, 255, 255]} // White stars
-        speedFactor={0.05} // Adjust the speed of the stars' movement
-        backgroundColor="#243447" // Navy blue background color
-        className="absolute top-0 left-0 w-full h-full z-[-1]"
-      />
+      <div className="absolute inset-0 z-0">
+        <Starfield
+          starCount={500}
+          starColor={[255, 255, 255]}
+          speedFactor={0.05}
+          backgroundColor="#243447"
+        />
+      </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
+      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
         {/* Left Side - Contact Form */}
         <div className="md:w-1/2 w-full p-8 text-white">
           <motion.h2
@@ -192,6 +195,7 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="flex flex-col space-y-6"
           >
+            {/* Hidden field for Netlify */}
             <input type="hidden" name="form-name" value="contact" />
 
             <div>
