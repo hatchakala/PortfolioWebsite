@@ -1,7 +1,8 @@
-import project1 from "../assets/projects/project-1.jpg";
-import project2 from "../assets/projects/project-2.jpg";
+import project1 from "../assets/projects/stanleyCupAgent.jpg";
+import project2 from "../assets/projects/yapMap.jpg";
 import project3 from "../assets/projects/project-3.jpg";
-
+import project4 from "../assets/projects/delayDetective.jpg";
+import project5 from "../assets/projects/portfolioWebsite.jpg";
 
 export const HERO_CONTENT = `Welcome to my portfolio website!`;
 
@@ -52,29 +53,37 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "UpTrend",
+    title: "Stanley Cup Checkout Agent",
     image: project1,
+    description:
+      "This web automation agent allows a user to complete the entire checkout process on the Stanley Cup website without requiring any direct user interaction. I identified key HTML elements and tracked unique attributes through browser inspection to pinpoint the elements needed for automation.",
+    technologies: ["Node.js", "Puppeteer.js"],
+  },
+  {
+    title: "Yap-Map",
+    image: project2,
+    description:
+      "An app that provides real-time noise levels and occupancy data for study lounges in Rutgers University’s Honors College. This app implemented a system using Python scripts on main computers and Raspberry Pi devices with cameras and microphones to track occupancy (every 20 seconds) and noise levels (every 10 seconds). I designed an intuitive floor plan-based UI that displays lounge conditions using color-coded indicators, powered by a MongoDB-backend API for real-time updates.",
+    technologies: ["React Native", "Python", "YOLO", "MongoDB", "Raspberry Pi"],
+
+  },
+  {
+    title: "UpTrend",
+    image: project3,
     description:
       "A comprehensive stock market analysis tool that integrates real-time data from the Yahoo Finance API, featuring paper trading, machine learning-driven stock price predictions, and live earnings/news updates for actionable insights.",
     technologies: ["HTML", "CSS", "React", "JavaScript", "C++"],
   },
   {
-    title: "Deploy Detective",
-    image: project2,
+    title: "Delay Detective",
+    image: project4,
     description:
       "A web application that utilizes NJTransit data to predict train delays. This tool reads .csv files provided by NJTransit, processes the data to train a RandomForestRegression model, and presents the results in an interactive and visually engaging React interface. It informs the user of the number of delayed trains, allowing users to gain insights into transit patterns and anticipate service disruptions.",
     technologies: ["Python", "Flask", "React", "HTML", "CSS", "JavaScript"],
   },
   {
-    title: "FableCaster",
-    image: project2,
-    description:
-      "Developed an interactive wizard bot leveraging ChatGPT APIs and ESP32 to generate personalized stories based on user-selected themes, with physical bot capabilities to express emotions and enhance the storytelling experience",
-    technologies: ["C++", "Arduino", "ESP32"],
-  },
-  {
     title: "Portfolio Website",
-    image: project3,
+    image: project5,
     description:
       "Created a dynamic web application to showcase personal experiences, projects, educational background, and provide streamlined contact options, enhancing user engagement and accessibility",
     technologies: ["HTML", "CSS", "React", "JavaScript", "Tailwind"],
