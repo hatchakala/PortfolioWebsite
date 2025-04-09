@@ -37,7 +37,7 @@ const Navbar = () => {
 
         {/* Instagram */}
         <a
-          href="https://www.instagram.com/hardhikk.06/"
+          href="https://www.instagram.com/hardhikatchakala/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-pink-600"
