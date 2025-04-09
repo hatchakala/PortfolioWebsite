@@ -70,8 +70,8 @@ const App = () => {
           <Hero />
         </div>
 
-        {/* Adjusted About section with blue border */}
-        <div className="border-b-2 border-[#2965F1] pb-24">
+        {/* About section - no border */}
+        <div className="pb-16">
           <About />
         </div>
 
@@ -90,6 +90,7 @@ const App = () => {
           <Projects />
         </div>
 
+        {/* Contact section - no border */}
         <Contact />
       </div>
     </div>
