@@ -159,15 +159,15 @@ const Contact = () => {
     })
       .then(() => {
         alert("Message sent!");
-        setFormData({ name: "", email: "", message: "" }); // Clear the form
+        setFormData({ name: "", email: "", message: "" });
       })
       .catch((error) => alert("Failed to send message: " + error));
   };
 
   return (
-    <div id="contact" className="relative bg-[#243447]">
-      {/* Starfield background */}
-      <div className="absolute inset-0 z-0">
+    <div id="contact" className="relative bg-[#243447] overflow-hidden">
+      {/* Starfield Background - absolute but inside the contact section only */}
+      <div className="absolute inset-0 h-full w-full -z-10 pointer-events-none">
         <Starfield
           starCount={500}
           starColor={[255, 255, 255]}
@@ -176,7 +176,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
+      <div className="flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20">
         {/* Left Side - Contact Form */}
         <div className="md:w-1/2 w-full p-8 text-white">
           <motion.h2
@@ -195,7 +195,6 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="flex flex-col space-y-6"
           >
-            {/* Hidden field for Netlify */}
             <input type="hidden" name="form-name" value="contact" />
 
             <div>
@@ -274,4 +273,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
