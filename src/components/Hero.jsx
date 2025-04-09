@@ -2,6 +2,7 @@
 // import profilePic from "../assets/HardhikMainWebsitePFP.png";
 // import { motion } from "framer-motion";
 // import Typewriter from "typewriter-effect";
+// import { useState } from "react";
 
 // const container = (delay) => ({
 //   hidden: { x: -100, opacity: 0 },
@@ -13,6 +14,8 @@
 // });
 
 // const Hero = () => {
+//   const [isTyped, setIsTyped] = useState(false);
+
 //   return (
 //     <div className="border-b border-neutral-900 pb-4 lg:mb-36">
 //       <div className="flex flex-wrap">
@@ -24,24 +27,32 @@
 //               animate="visible"
 //               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
 //             >
-//               <Typewriter
-//                 options={{
-//                   strings: ["Hardhik Atchakala"],
-//                   autoStart: true,
-//                   loop: false,
-//                   cursor: "|",
-//                   delay: 75,
-//                 }}
-//                 onInit={(typewriter) => {
-//                   typewriter
-//                     .typeString("Hardhik Atchakala")
-//                     .callFunction(() => {
-//                       // Hides the cursor by targeting it directly after typing finishes
-//                       document.querySelector(".Typewriter__cursor").style.display = "none";
-//                     })
-//                     .start();
-//                 }}
-//               />
+//               {/* Typewriter effect to print the name only the second time */}
+//               {!isTyped && (
+//                 <Typewriter
+//                   options={{
+//                     strings: ["Hardhik Atchakala"],
+//                     autoStart: true,
+//                     loop: false,
+//                     cursor: "|",
+//                     delay: 75,
+//                   }}
+//                   onInit={(typewriter) => {
+//                     typewriter
+//                       .typeString("Hardhik Atchakala")
+//                       .callFunction(() => {
+//                         // Hide the cursor after typing is complete
+//                         const cursor = document.querySelector(".Typewriter__cursor");
+//                         if (cursor) {
+//                           cursor.style.display = "none";
+//                         }
+//                         setIsTyped(true); // Mark as typed
+//                       })
+//                       .start();
+//                   }}
+//                 />
+//               )}
+//               {isTyped && <span>Hardhik Atchakala</span>} {/* Show name after typing */}
 //             </motion.div>
 //             <motion.span
 //               variants={container(0.5)}
@@ -51,7 +62,6 @@
 //             >
 //               Full Stack Developer
 //             </motion.span>
-//             {/* Reduced spacing between Full Stack Developer and description */}
 //             <motion.p
 //               variants={container(1)}
 //               initial="hidden"
@@ -60,7 +70,6 @@
 //             >
 //               {HERO_CONTENT}
 //             </motion.p>
-//             {/* Added resume button */}
 //             <motion.a
 //               href="https://drive.google.com/file/d/1BgGa8OFSlt3ORBMmUVNKnQZPlkoqt6k3/view"
 //               target="_blank"
@@ -92,11 +101,12 @@
 
 // export default Hero;
 
+
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/HardhikMainWebsitePFP.png";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -110,6 +120,14 @@ const container = (delay) => ({
 const Hero = () => {
   const [isTyped, setIsTyped] = useState(false);
 
+  // One-time effect to hide the cursor after typing
+  useEffect(() => {
+    if (isTyped) {
+      const cursor = document.querySelector(".Typewriter__cursor");
+      if (cursor) cursor.style.display = "none";
+    }
+  }, [isTyped]);
+
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-36">
       <div className="flex flex-wrap">
@@ -121,33 +139,26 @@ const Hero = () => {
               animate="visible"
               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
             >
-              {/* Typewriter effect to print the name only the second time */}
-              {!isTyped && (
+              {!isTyped ? (
                 <Typewriter
                   options={{
-                    strings: ["Hardhik Atchakala"],
                     autoStart: true,
                     loop: false,
-                    cursor: "|",
                     delay: 75,
+                    cursor: "|",
                   }}
                   onInit={(typewriter) => {
                     typewriter
                       .typeString("Hardhik Atchakala")
-                      .callFunction(() => {
-                        // Hide the cursor after typing is complete
-                        const cursor = document.querySelector(".Typewriter__cursor");
-                        if (cursor) {
-                          cursor.style.display = "none";
-                        }
-                        setIsTyped(true); // Mark as typed
-                      })
+                      .callFunction(() => setIsTyped(true))
                       .start();
                   }}
                 />
+              ) : (
+                <span>Hardhik Atchakala</span>
               )}
-              {isTyped && <span>Hardhik Atchakala</span>} {/* Show name after typing */}
             </motion.div>
+
             <motion.span
               variants={container(0.5)}
               initial="hidden"
@@ -156,6 +167,7 @@ const Hero = () => {
             >
               Full Stack Developer
             </motion.span>
+
             <motion.p
               variants={container(1)}
               initial="hidden"
@@ -164,6 +176,7 @@ const Hero = () => {
             >
               {HERO_CONTENT}
             </motion.p>
+
             <motion.a
               href="https://drive.google.com/file/d/1BgGa8OFSlt3ORBMmUVNKnQZPlkoqt6k3/view"
               target="_blank"
@@ -177,6 +190,7 @@ const Hero = () => {
             </motion.a>
           </div>
         </div>
+
         <div className="w-full lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
             <motion.img
