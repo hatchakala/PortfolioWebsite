@@ -47,6 +47,7 @@
 
 // export default App;
 
+
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -66,31 +67,28 @@ const App = () => {
         <Navbar />
         
         {/* Hero section with blue border below */}
-        <div className="border-b-2 border-[#2965F1] pb-24">
+        <div className="border-b-4 border-[#2965F1] pb-24">
           <Hero />
         </div>
 
-        {/* About section - no border */}
+        {/* Adjusted About section without border */}
         <div className="pb-16">
           <About />
         </div>
 
-        {/* Technologies section with blue border */}
-        <div className="border-b-2 border-[#2965F1] pb-24">
-          <Technologies />
-        </div>
+        {/* Technologies section without extra border */}
+        <Technologies />
 
         {/* Experience section with blue border below */}
-        <div className="border-b-2 border-[#2965F1] pb-24">
+        <div className="border-b-4 border-[#2965F1] pb-24">
           <Experience />
         </div>
 
         {/* Projects section with blue border below */}
-        <div className="border-b-2 border-[#2965F1] pb-24">
+        <div className="border-b-4 border-[#2965F1] pb-24">
           <Projects />
         </div>
 
-        {/* Contact section - no border */}
         <Contact />
       </div>
     </div>
@@ -98,6 +96,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
