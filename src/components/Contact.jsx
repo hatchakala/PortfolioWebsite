@@ -163,7 +163,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative">
+    <div id="contact" className="relative bg-[#243447]">
       {/* Starfield background */}
       <Starfield
         starCount={500}
@@ -270,3 +270,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
