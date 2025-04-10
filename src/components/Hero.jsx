@@ -107,7 +107,7 @@
 // export default Hero;
 
 import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/HardhikMainWebsitePFP.png";
+import profilePic from "../assets/HardhikProfilePicture.png";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
