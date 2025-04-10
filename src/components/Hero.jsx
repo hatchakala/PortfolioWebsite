@@ -25,15 +25,15 @@
 //   }, [isTyped]);
 
 //   return (
-//     <div className="border-b border-neutral-900 pb-4 lg:mb-36">
-//       <div className="flex flex-wrap">
-//         <div className="w-full lg:w-1/2">
+//     <div className="border-b border-neutral-900 pb-8 lg:mb-36 px-4 sm:px-8">
+//       <div className="flex flex-wrap justify-center items-center">
+//         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
 //           <div className="flex flex-col items-center lg:items-start">
 //             <motion.div
 //               variants={container(0)}
 //               initial="hidden"
 //               animate="visible"
-//               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
+//               className="pb-8 text-5xl font-thin tracking-tight sm:text-6xl lg:text-7xl"
 //             >
 //               {!isTyped ? (
 //                 <Typewriter
@@ -59,7 +59,7 @@
 //               variants={container(0.5)}
 //               initial="hidden"
 //               animate="visible"
-//               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
+//               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl sm:text-3xl tracking-tight text-transparent"
 //             >
 //               Full Stack Developer
 //             </motion.span>
@@ -68,7 +68,7 @@
 //               variants={container(1)}
 //               initial="hidden"
 //               animate="visible"
-//               className="my-2 max-w-xl py-3 font-light tracking-tighter"
+//               className="my-4 max-w-xl py-3 font-light tracking-tighter text-center lg:text-left"
 //             >
 //               {HERO_CONTENT}
 //             </motion.p>
@@ -95,6 +95,7 @@
 //               transition={{ duration: 1, delay: 1.2 }}
 //               src={profilePic}
 //               alt="Hardhik Atchakala"
+//               className="w-64 sm:w-80 lg:w-96"
 //             />
 //           </div>
 //         </div>
@@ -110,6 +111,7 @@ import profilePic from "../assets/HardhikMainWebsitePFP.png";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -123,7 +125,6 @@ const container = (delay) => ({
 const Hero = () => {
   const [isTyped, setIsTyped] = useState(false);
 
-  // One-time effect to hide the cursor after typing
   useEffect(() => {
     if (isTyped) {
       const cursor = document.querySelector(".Typewriter__cursor");
@@ -140,7 +141,7 @@ const Hero = () => {
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="pb-8 text-5xl font-thin tracking-tight sm:text-6xl lg:text-7xl"
+              className="pb-8 text-5xl font-thin tracking-tight sm:text-6xl lg:text-7xl text-center lg:text-left"
             >
               {!isTyped ? (
                 <Typewriter
@@ -180,6 +181,7 @@ const Hero = () => {
               {HERO_CONTENT}
             </motion.p>
 
+            {/* Resume Button */}
             <motion.a
               href="https://drive.google.com/file/d/1BgGa8OFSlt3ORBMmUVNKnQZPlkoqt6k3/view"
               target="_blank"
@@ -191,6 +193,47 @@ const Hero = () => {
             >
               View Resume
             </motion.a>
+
+            {/* Social Buttons */}
+            <motion.div
+              variants={container(2)}
+              initial="hidden"
+              animate="visible"
+              className="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start"
+            >
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/atchakalahardhik"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 px-5 py-2 text-white font-medium shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+              >
+                <FaLinkedin />
+                LinkedIn
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/hatchakala"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 px-5 py-2 text-white font-medium shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+              >
+                <FaGithub />
+                GitHub
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/hardhikatchakala/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 px-5 py-2 text-white font-medium shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+              >
+                <FaInstagram />
+                Instagram
+              </a>
+            </motion.div>
           </div>
         </div>
 
@@ -212,6 +255,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 
 
