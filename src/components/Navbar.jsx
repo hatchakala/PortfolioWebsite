@@ -23,6 +23,9 @@ const Navbar = () => {
     };
   }, []);
 
+  const navLinkClass =
+    "relative text-base text-white transition-all duration-200 cursor-pointer hover:text-[#2965F1] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#2965F1] after:transition-all after:duration-200";
+
   return (
     <nav className="mb-20 flex items-center justify-between py-6">
       <div className="flex flex-shrink-0 items-center">
@@ -37,49 +40,24 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-8">
-        <Link
-          to="hero"
-          smooth={true}
-          duration={500}
-          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
-        >
+        <Link to="hero" smooth={true} duration={500} className={navLinkClass}>
           Home
         </Link>
-        <Link
-          to="about"
-          smooth={true}
-          duration={500}
-          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
-        >
+        <Link to="about" smooth={true} duration={500} className={navLinkClass}>
           About Me
         </Link>
-        <Link
-          to="experience"
-          smooth={true}
-          duration={500}
-          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
-        >
+        <Link to="experience" smooth={true} duration={500} className={navLinkClass}>
           Experience
         </Link>
-        <Link
-          to="projects"
-          smooth={true}
-          duration={500}
-          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
-        >
+        <Link to="projects" smooth={true} duration={500} className={navLinkClass}>
           Projects
         </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={500}
-          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
-        >
+        <Link to="contact" smooth={true} duration={500} className={navLinkClass}>
           Contact
         </Link>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <button onClick={toggleMenu} className="text-white">
           {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -92,51 +70,18 @@ const Navbar = () => {
           ref={menuRef}
           className="absolute top-16 right-4 bg-transparent text-white w-40 px-4 py-4 space-y-4 shadow-lg rounded-lg"
         >
-          <Link
-            to="hero"
-            smooth={true}
-            duration={500}
-            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
-            onClick={toggleMenu}
-          >
-            Home
-          </Link>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
-            onClick={toggleMenu}
-          >
-            About Me
-          </Link>
-          <Link
-            to="experience"
-            smooth={true}
-            duration={500}
-            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
-            onClick={toggleMenu}
-          >
-            Experience
-          </Link>
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
-            onClick={toggleMenu}
-          >
-            Projects
-          </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
-            onClick={toggleMenu}
-          >
-            Contact
-          </Link>
+          {["hero", "about", "experience", "projects", "contact"].map((section) => (
+            <Link
+              key={section}
+              to={section}
+              smooth={true}
+              duration={500}
+              className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right cursor-pointer"
+              onClick={toggleMenu}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </Link>
+          ))}
         </div>
       )}
     </nav>

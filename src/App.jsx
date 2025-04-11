@@ -9,7 +9,7 @@ import { Element } from "react-scroll";
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
+    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-[#2965F1] selection:text-white">
       <div className="fixed top-0 -z-10 h-full w-full">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-navy"></div>
       </div>

@@ -33,7 +33,16 @@ const Hero = () => {
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="pb-8 text-5xl font-thin tracking-tight sm:text-6xl lg:text-7xl text-center lg:text-left"
+              className="pb-4 text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-center lg:text-left"
+            >
+              Hey! I'm
+            </motion.div>
+
+            <motion.div
+              variants={container(0.5)}
+              initial="hidden"
+              animate="visible"
+              className="pb-8 text-5xl sm:text-6xl lg:text-7xl font-thin tracking-tight text-center lg:text-left"
             >
               {!isTyped ? (
                 <Typewriter
@@ -45,6 +54,7 @@ const Hero = () => {
                   }}
                   onInit={(typewriter) => {
                     typewriter
+                      .pauseFor(1500)
                       .typeString("Hardhik Atchakala")
                       .callFunction(() => setIsTyped(true))
                       .start();
@@ -56,7 +66,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.span
-              variants={container(0.5)}
+              variants={container(1)}
               initial="hidden"
               animate="visible"
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl sm:text-3xl tracking-tight text-transparent"
@@ -65,7 +75,7 @@ const Hero = () => {
             </motion.span>
 
             <motion.p
-              variants={container(1)}
+              variants={container(1.3)}
               initial="hidden"
               animate="visible"
               className="my-4 max-w-xl py-3 font-light tracking-tighter text-center lg:text-left"
@@ -75,7 +85,7 @@ const Hero = () => {
 
             {/* Social Links */}
             <motion.div
-              variants={container(1.3)}
+              variants={container(1.6)}
               initial="hidden"
               animate="visible"
               className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
@@ -143,8 +153,4 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
 

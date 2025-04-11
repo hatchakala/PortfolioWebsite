@@ -1,6 +1,6 @@
 import project1 from "../assets/projects/stanleyCupAgent.jpg";
 import project2 from "../assets/projects/yapMap.jpg";
-import project3 from "../assets/projects/project-3.jpg";
+import project3 from "../assets/projects/upTrend.jpg";
 import project4 from "../assets/projects/delayDetective.jpg";
 import project5 from "../assets/projects/portfolioWebsite.jpg";
 
