@@ -3,7 +3,7 @@ import profilePic from "../assets/HardhikMainWebsitePFPNoBackground.jpg";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -25,7 +25,7 @@ const Hero = () => {
   }, [isTyped]);
 
   return (
-    <div className="pb-8 lg:mb-36 px-4 sm:px-8"> {/* Removed border-b and border-neutral-900 */}
+    <div className="pb-8 lg:mb-36 px-4 sm:px-8">
       <div className="flex flex-wrap justify-center items-center">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           <div className="flex flex-col items-center lg:items-start">
@@ -73,18 +73,55 @@ const Hero = () => {
               {HERO_CONTENT}
             </motion.p>
 
-            {/* Resume Button */}
-            <motion.a
-              href="https://drive.google.com/file/d/1BgGa8OFSlt3ORBMmUVNKnQZPlkoqt6k3/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={container(1.5)}
+            {/* Social Links */}
+            <motion.div
+              variants={container(1.3)}
               initial="hidden"
               animate="visible"
-              className="mt-4 inline-block rounded-full bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 px-6 py-3 text-white font-medium tracking-tight shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105"
+              className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
             >
-              View Resume
-            </motion.a>
+              {/* Email */}
+              <a
+                href="mailto:athardhik06@gmail.com"
+                className="flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-lg transition-transform duration-200 hover:scale-105 group"
+              >
+                <FaEnvelope className="text-2xl group-hover:text-red-500 transition-colors duration-200" />
+                <span className="text-base group-hover:text-red-500 transition-colors duration-200">Email</span>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/atchakalahardhik"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-lg transition-transform duration-200 hover:scale-105 group"
+              >
+                <FaLinkedin className="text-2xl group-hover:text-blue-600 transition-colors duration-200" />
+                <span className="text-base group-hover:text-blue-600 transition-colors duration-200">LinkedIn</span>
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/hatchakala"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-lg transition-transform duration-200 hover:scale-105 group"
+              >
+                <FaGithub className="text-2xl group-hover:text-purple-500 transition-colors duration-200" />
+                <span className="text-base group-hover:text-purple-500 transition-colors duration-200">GitHub</span>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/hardhikatchakala/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-lg transition-transform duration-200 hover:scale-105 group"
+              >
+                <FaInstagram className="text-2xl group-hover:text-pink-600 transition-colors duration-200" />
+                <span className="text-base group-hover:text-pink-600 transition-colors duration-200">Instagram</span>
+              </a>
+            </motion.div>
           </div>
         </div>
 

@@ -1,50 +1,140 @@
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-scroll";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/HardhikNavBarPFP.png";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
-import { Link } from 'react-scroll';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="mb-20 flex items-center justify-between py-6">
       <div className="flex flex-shrink-0 items-center">
-        <Link
-          to="contact" // Change to lowercase to match the id in Contact section
-          smooth={true}
-          duration={500}
-        >
+        <Link to="hero" smooth={true} duration={500}>
           <img className="mx-2 w-10 cursor-pointer" src={logo} alt="logo" />
         </Link>
       </div>
-      <div className="m-8 flex items-center justify-center gap-4 text-2xl">
-        {/* LinkedIn */}
-        <a
-          href="https://www.linkedin.com/in/atchakalahardhik"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-600"
-        >
-          <FaLinkedin />
-        </a>
-        
-        {/* Github */}
-        <a
-          href="https://github.com/hatchakala"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-purple-500"
-        >
-          <FaGithub />
-        </a>
 
-        {/* Instagram */}
-        <a
-          href="https://www.instagram.com/hardhikatchakala/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-pink-600"
+      {/* Desktop Menu */}
+      <div className="hidden md:flex space-x-8">
+        <Link
+          to="hero"
+          smooth={true}
+          duration={500}
+          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
         >
-          <FaInstagram />
-        </a>
+          Home
+        </Link>
+        <Link
+          to="about"
+          smooth={true}
+          duration={500}
+          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
+        >
+          About Me
+        </Link>
+        <Link
+          to="experience"
+          smooth={true}
+          duration={500}
+          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
+        >
+          Experience
+        </Link>
+        <Link
+          to="projects"
+          smooth={true}
+          duration={500}
+          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
+        >
+          Projects
+        </Link>
+        <Link
+          to="contact"
+          smooth={true}
+          duration={500}
+          className="text-base text-white transition-colors duration-200 hover:text-[#2965F1]"
+        >
+          Contact
+        </Link>
       </div>
+
+      {/* Mobile Menu */}
+      <div className="md:hidden">
+        <button onClick={toggleMenu} className="text-white">
+          {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div
+          ref={menuRef}
+          className="absolute top-16 right-4 bg-transparent text-white w-40 px-4 py-4 space-y-4 shadow-lg rounded-lg"
+        >
+          <Link
+            to="hero"
+            smooth={true}
+            duration={500}
+            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
+            onClick={toggleMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
+            onClick={toggleMenu}
+          >
+            About Me
+          </Link>
+          <Link
+            to="experience"
+            smooth={true}
+            duration={500}
+            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
+            onClick={toggleMenu}
+          >
+            Experience
+          </Link>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
+            onClick={toggleMenu}
+          >
+            Projects
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right"
+            onClick={toggleMenu}
+          >
+            Contact
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
