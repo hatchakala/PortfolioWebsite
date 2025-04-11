@@ -24,7 +24,7 @@ const Contact = () => {
       body: new URLSearchParams(new FormData(form)).toString(),
     })
       .then(() => {
-        alert("Message sent!");
+        alert("Your message has been sent to Hardhik!");
         setFormData({ name: "", email: "", message: "" }); // Clear the form
       })
       .catch((error) => alert("Failed to send message: " + error));
