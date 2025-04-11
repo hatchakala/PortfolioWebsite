@@ -1,7 +1,5 @@
-import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ContactImage from "../assets/ContactMeWesbiteVisual.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +23,7 @@ const Contact = () => {
     })
       .then(() => {
         alert("Your message has been sent to Hardhik!");
-        setFormData({ name: "", email: "", message: "" }); // Clear the form
+        setFormData({ name: "", email: "", message: "" });
       })
       .catch((error) => alert("Failed to send message: " + error));
   };
@@ -33,7 +31,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="flex flex-col md:flex-row justify-between items-center border-b border-neutral-900 pb-20"
+      className="flex flex-col md:flex-row justify-between items-center"
     >
       {/* Left Side - Contact Form */}
       <div className="md:w-1/2 w-full p-8 text-white">
@@ -53,7 +51,6 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="flex flex-col space-y-6"
         >
-          {/* Hidden field for Netlify */}
           <input type="hidden" name="form-name" value="contact" />
 
           <div>
@@ -112,18 +109,31 @@ const Contact = () => {
         </motion.form>
       </div>
 
-      {/* Right Side - Visual Element */}
-      <div className="md:w-1/2 w-full flex justify-center items-center">
+      {/* Right Side - Contact Info */}
+      <div className="md:w-1/2 w-full flex justify-center items-center px-8">
         <motion.div
           whileInView={{ opacity: 1, scale: 1 }}
           initial={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 1 }}
+          className="text-center text-[#D1D5DB] space-y-10 text-[1.1rem]"
         >
-          <img
-            src={ContactImage}
-            alt="3D Globe"
-            className="w-96 h-96 object-contain"
-          />
+          <h3 className="text-2xl font-semibold text-white">Connect with me at</h3>
+
+          <div className="space-y-2">
+            <p className="text-white font-medium text-lg">EMAIL</p>
+            <p>hardhik.atchakala@rutgers.edu</p>
+            <p>athardhik06@gmail.com</p>
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-white font-medium text-lg">PHONE NUMBER</p>
+            <p>(908) 630-7555</p>
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-white font-medium text-lg">LOCATION</p>
+            <p>Bridgewater, NJ</p>
+          </div>
         </motion.div>
       </div>
     </div>

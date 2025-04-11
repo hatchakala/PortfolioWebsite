@@ -6,7 +6,7 @@ import project5 from "../assets/projects/portfolioWebsite.jpg";
 
 export const HERO_CONTENT = `Welcome to my portfolio website!`;
 
-export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m a computer science student at Rutgers University. I'm interested in leveraging computing to create a difference. I'm a passionate coder from New Jersey looking for software engineering job opportunities. In my free time, I enjoy cooking, playing basketball, playing video games, and chilling with my friends. Feel free to connect with me on any platform!`;
+export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m an honors computer science student at Rutgers University - New Brunswick. I'm interested in leveraging computing to create a difference. I'm a passionate coder from New Jersey looking for software engineering job opportunities. In my free time, I enjoy cooking, playing basketball, playing video games, and chilling with my friends. Feel free to connect with me on any platform!`;
 
 export const EXPERIENCES = [
   {
