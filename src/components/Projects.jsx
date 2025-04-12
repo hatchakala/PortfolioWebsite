@@ -1,6 +1,13 @@
 import { PROJECTS } from "../constants";
 import { motion } from "framer-motion";
 
+const linkMap = {
+  "Stanley Cup Checkout Agent": "https://github.com/hatchakala/StanleyCupCheckoutAgent",
+  "Yap-Map": "https://dorahacks.io/buidl/22370",
+  "Delay Detective": "https://devpost.com/software/delay-detective",
+  "Portfolio Website": "https://athardhik.netlify.app/",
+};
+
 const Projects = () => {
   return (
     <div className="pb-4">
@@ -21,12 +28,27 @@ const Projects = () => {
               transition={{ duration: 1 }}
               className="w-full lg:w-1/4 flex justify-center"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                style={{ border: "4px solid #2965F1" }}
-                className="rounded shadow-md hover:scale-105 hover:-translate-y-1 transition-transform duration-300 w-[220px] h-[150px] object-cover cursor-pointer"
-              />
+              {linkMap[project.title] ? (
+                <a
+                  href={linkMap[project.title]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style={{ border: "4px solid #2965F1" }}
+                    className="rounded shadow-md hover:scale-105 hover:-translate-y-1 transition-transform duration-300 w-[220px] h-[150px] object-cover cursor-pointer"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{ border: "4px solid #2965F1" }}
+                  className="rounded shadow-md hover:scale-105 hover:-translate-y-1 transition-transform duration-300 w-[220px] h-[150px] object-cover cursor-pointer"
+                />
+              )}
             </motion.div>
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
@@ -55,5 +77,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-
