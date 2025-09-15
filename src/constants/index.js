@@ -6,18 +6,26 @@ import project5 from "../assets/projects/portfolioWebsite.jpg";
 
 export const HERO_CONTENT = `Welcome to my portfolio website!`;
 
-export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m an honors computer science student at Rutgers University - New Brunswick. I'm interested in leveraging computing to create a difference. I'm a passionate coder from New Jersey looking for software engineering job opportunities. In my free time, I enjoy cooking, playing basketball, playing video games, and chilling with my friends. Feel free to connect with me on any platform!`;
+export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m a double major in Computer Science and Data Science at Rutgers University - New Brunswick Honors College. I'm passionate about leveraging computing to make a difference and am actively seeking software engineering opportunities. In my free time, I enjoy cooking, playing basketball, playing video games, and chilling with my friends. Feel free to connect with me on any platform!`;
 
 export const EXPERIENCES = [
   {
-    year: "June 2023 - August 2023",
-    role: "Frontend Developer",
+    year: "September 2025 - Present",
+    role: "Learning Assistant (CS111)",
+    company: "Rutgers University - New Brunswick",
+    description: `Supported professors in facilitating introductory programming courses by mentoring 25+ students in Java.
+    Guided debugging sessions, reinforced object-oriented programming principles, and promoted collaborative problem-solving through weekly recitations.`,
+    technologies: ["Java", "VSCode", "Object-Oriented Programming", "Commnication", "Mentorship"],
+  },
+  {
+    year: "June 2025 - August 2025",
+    role: "Software Engineering Intern",
     company: "INNOJC TECHNOLOGIES Pvt Ltd",
-    description: `Worked with teams to develop and deploy websites for 25+ underprivileged clients, using HTML, CSS, JavaScript, and React
-      Collaborated on building and integrating RESTful APIs to improve functionality between the front and back end, contributing to a more efficient user experience
-      Wrote automated scripts for testing website reliability using Postman to help reduce the need for manual testing
-      Worked within an Agile framework to ensure continuous delivery and coordinated with the team using Git for version control`,
-    technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile"],
+    description: `Built 25+ websites using React, Node.js, HTML, CSS, and JavaScript for underprivileged clients.
+    Deployed secure and scalable apps on AWS cloud, integrating APIs with authentication and monitoring features.
+    Automated development tasks using Bash scripts and applied CI/CD pipelines for rapid deployments.
+    Collaborated in Agile sprints, peer reviews, and troubleshooting to resolve cross-functional technical challenges.`,
+    technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD pipelines", "Node.js"],
   },
   {
     year: "December 2022 - July 2023",
@@ -53,11 +61,11 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "Stanley Cup Checkout Agent",
+    title: "ScrollLess",
     image: project1,
     description:
-      "This web automation agent allows a user to complete the entire checkout process on the Stanley Cup website without requiring any direct user interaction. I identified key HTML elements and tracked unique attributes through browser inspection to pinpoint the elements needed for automation.",
-    technologies: ["Node.js", "Puppeteer.js"],
+      "I designed and built ScrollLess, a cross-platform mobile app using React Native, Expo, and TypeScript, incorporating authentication, user dashboards, social leagues, and leaderboards to help reduce excessive screen time. I integrated cloud-based APIs and PostgreSQL RLS policies to ensure secure, scalable data storage and enable real-time synchronization of user metrics across leagues. Throughout development, I applied Agile methodologies and CI/CD pipelines to deliver iterative feature improvements, enhance app reliability, and support rapid prototyping.",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "Agile", "CI/CD"],
   },
   {
     title: "Yap-Map",
@@ -65,14 +73,20 @@ export const PROJECTS = [
     description:
       "An app that provides real-time noise levels and occupancy data for study lounges in Rutgers University’s Honors College. This app implemented a system using Python scripts on main computers and Raspberry Pi devices with cameras and microphones to track occupancy (every 20 seconds) and noise levels (every 10 seconds). I designed an intuitive floor plan-based UI that displays lounge conditions using color-coded indicators, powered by a MongoDB-backend API for real-time updates.",
     technologies: ["React Native", "Python", "YOLO", "MongoDB", "Raspberry Pi"],
-
   },
   {
     title: "UpTrend",
     image: project3,
     description:
-      "A comprehensive stock market analysis tool that integrates real-time data from the Yahoo Finance API, featuring paper trading, machine learning-driven stock price predictions, and live earnings/news updates for actionable insights.",
-    technologies: ["HTML", "CSS", "React", "JavaScript", "C++"],
+      "A comprehensive stock prediction system for decision science applications, leveraging machine learning regression and time-series forecasting to generate actionable insights. The platform integrates real-time data from the Yahoo Finance API and features paper trading, live earnings and news updates, and ML-driven stock price predictions. I deployed the full-stack architecture in Docker containers on AWS, implementing cloud monitoring and troubleshooting tools, while applying data engineering pipelines to ingest, clean, and analyze time-series data efficiently.",
+    technologies: ["React.js", "Node.js", "PostgreSQL", "Python (ML)", "AWS", "Docker"],
+  },
+  {
+    title: "Stanley Cup Checkout Agent",
+    image: project1,
+    description:
+      "This web automation agent allows a user to complete the entire checkout process on the Stanley Cup website without requiring any direct user interaction. I identified key HTML elements and tracked unique attributes through browser inspection to pinpoint the elements needed for automation.",
+    technologies: ["Node.js", "Puppeteer.js"],
   },
   {
     title: "Delay Detective",
