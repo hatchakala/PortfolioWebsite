@@ -15,7 +15,7 @@ export const EXPERIENCES = [
     company: "Rutgers University - New Brunswick",
     description: `Supported professors in facilitating introductory programming courses by mentoring 25+ students in Java.
     Guided debugging sessions, reinforced object-oriented programming principles, and promoted collaborative problem-solving through weekly recitations.`,
-    technologies: ["Java", "VSCode", "Object-Oriented Programming", "Commnication", "Mentorship"],
+    technologies: ["Java", "VSCode", "OOP", "Communication", "Mentorship"], 
   },
   {
     year: "June 2025 - August 2025",
@@ -25,7 +25,7 @@ export const EXPERIENCES = [
     Deployed secure and scalable apps on AWS cloud, integrating APIs with authentication and monitoring features.
     Automated development tasks using Bash scripts and applied CI/CD pipelines for rapid deployments.
     Collaborated in Agile sprints, peer reviews, and troubleshooting to resolve cross-functional technical challenges.`,
-    technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD pipelines", "Node.js"],
+    technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD", "Pipelines", "Node.js"],
   },
   {
     year: "December 2022 - July 2023",
