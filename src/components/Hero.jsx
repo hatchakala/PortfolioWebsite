@@ -1,5 +1,5 @@
 import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/HardhikMainWebsitePFPNoBackground.jpg";
+import profilePic from "../assets/HardhikMainWebsitePFP.jpg";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
