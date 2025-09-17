@@ -143,7 +143,7 @@ const Hero = () => {
               transition={{ duration: 1, delay: 1.2 }}
               src={profilePic}
               alt="Hardhik Atchakala"
-              className="w-64 sm:w-80 lg:w-96 mt-8"
+              className="w-64 sm:w-80 lg:w-96 mt-10"
             />
           </div>
         </div>
