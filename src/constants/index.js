@@ -11,6 +11,14 @@ export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m a double major in Compu
 export const EXPERIENCES = [
   {
     year: "September 2025 - Present",
+    role: "Lead Software Extern",
+  company: "Colgate-Palmolive via Rutgers MBS Externship Exchange",
+    description: `Building a prototype large language model–based solution to streamline regulatory document analysis, aiming to reduce manual review and improve compliance workflows by applying NLP and enterprise-scale ML techniques with Python, PyTorch, and Kubernetes (expected completion Dec 2025).
+    Collaborating with Colgate-Palmolive mentors and project members to design and test AI/ML approaches for parsing complex regulations, demonstrating practical enterprise applications of LLMs.`,
+    technologies: ["Python", "PyTorch", "Kubernetes", "NLP", "Machine Learning"], 
+  },
+  {
+    year: "September 2025 - Present",
     role: "Learning Assistant (CS111)",
     company: "Rutgers University - New Brunswick",
     description: `Supported professors in facilitating introductory programming courses by mentoring 25+ students in Java.
