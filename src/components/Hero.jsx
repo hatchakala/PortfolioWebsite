@@ -3,7 +3,7 @@ import profilePic from "../assets/HardhikMainWebsitePFP.jpg";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -119,17 +119,6 @@ const Hero = () => {
               >
                 <FaGithub className="text-2xl group-hover:text-purple-500 transition-colors duration-200" />
                 <span className="text-base group-hover:text-purple-500 transition-colors duration-200">GitHub</span>
-              </a>
-
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/hardhikatchakala/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-lg transition-transform duration-200 hover:scale-105 group"
-              >
-                <FaInstagram className="text-2xl group-hover:text-pink-600 transition-colors duration-200" />
-                <span className="text-base group-hover:text-pink-600 transition-colors duration-200">Instagram</span>
               </a>
             </motion.div>
           </div>
