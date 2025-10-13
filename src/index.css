@@ -1,3 +1,13 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Inter", sans-serif;
+} */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @tailwind base;
@@ -6,4 +16,16 @@
 
 :root {
   font-family: "Inter", sans-serif;
+}
+
+/* General text and link colors */
+body {
+  color: #D1D5DB; /* Tailwind neutral-300 */
+  font-weight: 500;
+}
+
+/* Selection color */
+::selection {
+  background-color: #2965F1;
+  color: white;
 }
