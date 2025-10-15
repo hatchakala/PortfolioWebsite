@@ -29,10 +29,9 @@ export const EXPERIENCES = [
     year: "June 2025 - August 2025",
     role: "Software Engineering Intern",
     company: "INNOJC TECHNOLOGIES Pvt Ltd",
-    description: `Built 25+ websites using React, Node.js, HTML, CSS, and JavaScript for underprivileged clients.
-    Deployed secure and scalable apps on AWS cloud, integrating APIs with authentication and monitoring features.
-    Automated development tasks using Bash scripts and applied CI/CD pipelines for rapid deployments.
-    Collaborated in Agile sprints, peer reviews, and troubleshooting to resolve cross-functional technical challenges.`,
+    description: `Developed and deployed full-stack applications with C++, Python, Node.js, and PostgreSQL, improving business-critical reliability and demonstrating robust database development and enterprise data management.
+    Designed REST APIs and modular back-end architectures, ensuring reusability and efficient integration.
+    Automated CI/CD pipelines with Docker + GitHub Actions, a key component of a robust process improvement strategy, enabling continuous testing and deployments.`,
     technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD", "Pipelines", "Node.js"],
   },
   {
