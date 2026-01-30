@@ -14,7 +14,7 @@ export const EXPERIENCES = [
     role: "Student Researcher/Participant",
   company: "National Space and Aeronautics Administration (NASA) L'SPACE Program",
     description: `Selected from hundreds of applicants for the NASA L’SPACE NPWEE Academy (Spring 2026 Cohort) to evaluate and develop technical proposals on agentic AI, autonomous, and adaptive software for space missions, preparing teams to compete for $10,000 in funding.`,
-    technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
+    technologies: ["Autonomous Systems", "Agentic AI", "Software Simulations", "Machine Learning"], 
   },
   {
     year: "October 2025 - Present",
