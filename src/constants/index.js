@@ -20,7 +20,7 @@ export const EXPERIENCES = [
     year: "October 2025 - Present",
     role: "Agentic AI Research Assistant",
   company: "Rutgers University Edward J. Bloustein School of Planning and Public Policy ",
-    description: `Working onan agentic AI research paper focused on advancing automated reasoning and analysis to support large-scale content moderation and decision-making workflows.
+    description: `Working on an agentic AI research paper focused on advancing automated reasoning and analysis to support large-scale content moderation and decision-making workflows.
     
     Conducted comprehensive research on emerging AI technologies and software systems, evaluating design approaches and trade-offs to inform technical research directions.
     
