@@ -20,9 +20,7 @@ export const EXPERIENCES = [
     year: "October 2025 - Present",
     role: "Agentic AI Research Assistant",
   company: "Rutgers University Edward J. Bloustein School of Planning and Public Policy ",
-    description: `Working on an agentic AI research paper focused on advancing automated reasoning and analysis to support large-scale content moderation and decision-making workflows.
-    Conducted comprehensive research on emerging AI technologies and software systems, evaluating design approaches and trade-offs to inform technical research directions.
-    Assisted in outreach efforts for the RAISE-26 National AI Competition by coordinating with campus organizations and social media platforms (Instagram, Reddit, LinkedIn), contributing to 150+ participating teams.`,
+    description: `Undergraduate Research Assistant for Dr. Jim Samuel, contributing to academic research on agentic AI systems and applications.`,
     technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
   },
   {
@@ -37,17 +35,15 @@ export const EXPERIENCES = [
     year: "September 2025 - Present",
     role: "Learning Assistant (CS111)",
     company: "Rutgers University - New Brunswick",
-    description: `Supported professors in facilitating introductory programming courses by mentoring 25+ students in Java.
+    description: `Supported professors in facilitating introductory programming courses by mentoring 30+ students in Java.
     Guided debugging sessions, reinforced object-oriented programming principles, and promoted collaborative problem-solving through weekly recitations.`,
     technologies: ["Java", "VSCode", "OOP", "Communication", "Mentorship"], 
   },
   {
     year: "June 2025 - August 2025",
-    role: "Software Engineering Intern",
-    company: "INNOJC TECHNOLOGIES Pvt Ltd",
-    description: `Developed and deployed full-stack applications with C++, Python, Node.js, and PostgreSQL, improving business-critical reliability and demonstrating robust database development and enterprise data management.
-    Designed REST APIs and modular back-end architectures, ensuring reusability and efficient integration.
-    Automated CI/CD pipelines with Docker + GitHub Actions, a key component of a robust process improvement strategy, enabling continuous testing and deployments.`,
+    role: "Full Stack Software Engineering Intern",
+    company: "Innojc Technologies",
+    description: `Built and deployed full-stack applications, designed modular APIs, configured CI/CD pipelines with Docker and GitHub Actions, and collaborated in Agile sprints.`,
     technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD", "Pipelines", "Node.js"],
   },
   {
