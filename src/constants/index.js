@@ -40,13 +40,6 @@ export const EXPERIENCES = [
     technologies: ["Java", "VSCode", "OOP", "Communication", "Mentorship"], 
   },
   {
-    year: "June 2025 - August 2025",
-    role: "Full Stack Software Engineering Intern",
-    company: "Innojc Technologies",
-    description: `Built and deployed full-stack applications, designed modular APIs, configured CI/CD pipelines with Docker and GitHub Actions, and collaborated in Agile sprints.`,
-    technologies: ["Javascript", "React.js", "HTML", "CSS", "Postman", "Agile", "AWS", "CI/CD", "Pipelines", "Node.js"],
-  },
-  {
     year: "December 2022 - July 2023",
     role: "Computer Science Lead Manager",
     company: "Princeton Learning Experience International School",
