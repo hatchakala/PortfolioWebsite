@@ -10,6 +10,20 @@ export const ABOUT_TEXT = `Hi, my name is Hardhik! I’m a double major in Compu
 
 export const EXPERIENCES = [
   {
+    year: "January 2026 - Present",
+    role: "Student Researcher/Participant",
+  company: "National Space and Aeronautics Administration (NASA) L'SPACE Program",
+    description: `Selected from hundreds of applicants for the NASA L’SPACE NPWEE Academy (Spring 2026 Cohort) to evaluate and develop technical proposals on agentic AI, autonomous, and adaptive software for space missions, preparing teams to compete for $10,000 in funding.`,
+    technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
+  },
+  {
+    year: "October 2025 - Present",
+    role: "Agentic AI Research Assistant",
+  company: "Rutgers University Edward J. Bloustein School of Planning and Public Policy ",
+    description: ``,
+    technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
+  },
+  {
     year: "September 2025 - Present",
     role: "Lead Software Extern",
   company: "Colgate-Palmolive via Rutgers MBS Externship Exchange",
@@ -71,11 +85,11 @@ export const PROJECTS = [
     title: "ScrollLess",
     image: project1,
     description:
-      "I designed and built ScrollLess, a cross-platform mobile app using React Native, Expo, and TypeScript, incorporating authentication, user dashboards, social leagues, and leaderboards to help reduce excessive screen time. I integrated cloud-based APIs and PostgreSQL RLS policies to ensure secure, scalable data storage and enable real-time synchronization of user metrics across leagues. Throughout development, I applied Agile methodologies and CI/CD pipelines to deliver iterative feature improvements, enhance app reliability, and support rapid prototyping.",
+      "I designed and built ScrollLess, a cross-platform mobile app using React Native to reduce excessive Instagram/TikTok scrolling by letting users track screen tme and compete in custom weekly leagues that reward lower usage and task completion with points-based rankings.",
     technologies: ["React Native", "Expo", "TypeScript", "Supabase", "Agile", "CI/CD"],
   },
   {
-    title: "Yap-Map",
+    title: "LoungeSense/Yap-Map",
     image: project2,
     description:
       "An app that provides real-time noise levels and occupancy data for study lounges in Rutgers University’s Honors College. This app implemented a system using Python scripts on main computers and Raspberry Pi devices with cameras and microphones to track occupancy (every 20 seconds) and noise levels (every 10 seconds). I designed an intuitive floor plan-based UI that displays lounge conditions using color-coded indicators, powered by a MongoDB-backend API for real-time updates.",
