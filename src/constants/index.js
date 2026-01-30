@@ -20,15 +20,20 @@ export const EXPERIENCES = [
     year: "October 2025 - Present",
     role: "Agentic AI Research Assistant",
   company: "Rutgers University Edward J. Bloustein School of Planning and Public Policy ",
-    description: ``,
+    description: `Working onan agentic AI research paper focused on advancing automated reasoning and analysis to support large-scale content moderation and decision-making workflows.
+    
+    Conducted comprehensive research on emerging AI technologies and software systems, evaluating design approaches and trade-offs to inform technical research directions.
+    
+    Assisted in outreach efforts for the RAISE-26 National AI Competition by coordinating with campus organizations and social media platforms (Instagram, Reddit, LinkedIn), contributing to 150+ participating teams.`,
     technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
   },
   {
     year: "September 2025 - Present",
     role: "Lead Software Extern",
   company: "Colgate-Palmolive via Rutgers MBS Externship Exchange",
-    description: `Building a prototype large language model–based solution to streamline regulatory document analysis, aiming to reduce manual review and improve compliance workflows by applying NLP and enterprise-scale ML techniques with Python, PyTorch, and Kubernetes (expected completion Dec 2025).
-    Collaborating with Colgate-Palmolive mentors and project members to design and test AI/ML approaches for parsing complex regulations, demonstrating practical enterprise applications of LLMs.`,
+    description: `Led the software team in building an LLM-powered RAG-based Q&A system with Python, LangChain, PostgreSQL (pgvector), Gemini API, and Kubernetes to parse complex regulations and reduce manual review, within an Agile team environment.
+    
+    Designed and built an automated alert agent using Python, scripting, webhooks, and GitHub Actions to monitor regulatory updates, generate actionable notifications, and deliver AI-driven insights to teams, minimizing oversight effort and enabling timely responses.`,
     technologies: ["Python", "PyTorch", "Kubernetes", "NLP", "Machine Learning"], 
   },
   {
