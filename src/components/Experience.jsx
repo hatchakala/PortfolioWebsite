@@ -33,26 +33,31 @@ const experienceDetailImages = [
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
-  const [detailsTopPosition, setDetailsTopPosition] = useState(0);
   const experienceRefs = EXPERIENCES.map(() => React.useRef(null));
+  const detailsPanelRef = React.useRef(null);
 
-  const handleExperienceClick = (index, ref) => {
+  const handleExperienceClick = (index) => {
     setSelectedExperience(index);
-    if (ref.current && window.innerWidth >= 1024) {
-      const rect = ref.current.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      setDetailsTopPosition(rect.top + scrollTop - 100);
-    } else {
-      setDetailsTopPosition(0);
-    }
   };
 
   const handleClose = () => {
     setSelectedExperience(null);
   };
 
+  // Calculate transform to center details panel with selected experience
+  React.useEffect(() => {
+    if (selectedExperience !== null && experienceRefs[selectedExperience].current && detailsPanelRef.current && window.innerWidth >= 1024) {
+      const experienceRect = experienceRefs[selectedExperience].current.getBoundingClientRect();
+      const detailsRect = detailsPanelRef.current.getBoundingClientRect();
+      const experienceCenter = experienceRect.top + experienceRect.height / 2;
+      const detailsCenter = detailsRect.height / 2;
+      const translateY = experienceCenter - detailsCenter - detailsRect.top;
+      detailsPanelRef.current.style.transform = `translateY(${translateY}px)`;
+    }
+  }, [selectedExperience]);
+
   return (
-    <div className="pb-4 relative">
+    <div className="pb-4">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -63,20 +68,18 @@ const Experience = () => {
         Experience
       </motion.h2>
 
-      <div className="flex flex-col lg:flex-row gap-8 relative min-h-[600px]">
+      <div className="flex flex-col lg:flex-row gap-8 relative">
         {/* Details Panel - Left Side */}
         <AnimatePresence>
           {selectedExperience !== null && (
             <motion.div
+              ref={detailsPanelRef}
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-1/2 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 relative lg:absolute lg:left-0"
-              style={{ 
-                top: window.innerWidth >= 1024 ? `${detailsTopPosition}px` : 'auto',
-                minHeight: '200px'
-              }}
+              className="w-full lg:w-2/3 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30"
+              style={{ minHeight: '200px' }}
             >
               {/* Close Button */}
               <button
@@ -131,11 +134,10 @@ const Experience = () => {
         {/* Timeline - Center/Right Side */}
         <motion.div
           animate={{
-            marginLeft: selectedExperience !== null ? (window.innerWidth >= 1024 ? "0" : "0") : "auto",
-            marginRight: selectedExperience !== null ? (window.innerWidth >= 1024 ? "0" : "0") : "auto",
+            width: selectedExperience !== null ? (window.innerWidth >= 1024 ? '33.333%' : '100%') : (window.innerWidth >= 1024 ? '66.666%' : '100%'),
           }}
           transition={{ duration: 0.5 }}
-          className={`${selectedExperience !== null ? 'w-full lg:w-1/2' : 'w-full lg:w-2/3'} relative`}
+          className={`${selectedExperience !== null ? '' : 'mx-auto'} relative`}
         >
           {/* Vertical Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#2965F1]/30 hidden lg:block"></div>
@@ -155,7 +157,7 @@ const Experience = () => {
               <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  onClick={() => handleExperienceClick(index, experienceRefs[index])}
+                  onClick={() => handleExperienceClick(index)}
                   className={`cursor-pointer p-3 rounded-xl border-2 transition-all duration-300 ${
                     selectedExperience === index 
                       ? 'border-[#2965F1] bg-[#2965F1]/20 shadow-lg shadow-[#2965F1]/50' 
