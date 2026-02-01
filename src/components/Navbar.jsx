@@ -38,7 +38,7 @@ const Navbar = () => {
     "relative text-base text-white transition-all duration-200 cursor-pointer hover:text-[#2965F1] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#2965F1] after:transition-all after:duration-200";
 
   return (
-    <nav className={`md:fixed md:top-0 md:left-0 md:right-0 z-50 mb-20 flex items-center justify-between py-6 px-4 transition-all duration-300 ${
+    <nav className={`md:fixed md:top-0 md:left-0 md:right-0 z-50 mb-20 md:mb-0 flex items-center justify-between py-6 px-8 transition-all duration-300 ${
       isScrolled ? 'backdrop-blur-lg bg-white/10 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="flex flex-shrink-0 items-center">
