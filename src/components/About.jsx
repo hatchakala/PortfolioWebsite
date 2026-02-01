@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 import { RiReactjsLine } from "react-icons/ri";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiMongodb, SiCss3, SiHtml5 } from "react-icons/si";
+import { SiMongodb, SiCss3, SiHtml5, SiDocker, SiKubernetes, SiMysql, SiMicrosoftazure, SiGooglecloud } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
-import { FaNodeJs, FaPython, FaJava } from "react-icons/fa";
+import { FaNodeJs, FaPython, FaJava, FaGitAlt, FaAws } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 const skillsData = [
@@ -19,6 +19,13 @@ const skillsData = [
   { icon: <FaJava className="text-7xl text-red-600" />, name: "Java" },
   { icon: <SiCss3 className="text-7xl text-blue-500" />, name: "CSS3" },
   { icon: <SiHtml5 className="text-7xl text-orange-500" />, name: "HTML5" },
+  { icon: <SiDocker className="text-7xl text-blue-400" />, name: "Docker" },
+  { icon: <SiKubernetes className="text-7xl text-blue-600" />, name: "Kubernetes" },
+  { icon: <FaGitAlt className="text-7xl text-orange-600" />, name: "Git" },
+  { icon: <SiMysql className="text-7xl text-blue-500" />, name: "MySQL" },
+  { icon: <FaAws className="text-7xl text-orange-400" />, name: "AWS" },
+  { icon: <SiMicrosoftazure className="text-7xl text-blue-500" />, name: "Azure" },
+  { icon: <SiGooglecloud className="text-7xl text-red-500" />, name: "GCP" },
 ];
 
 const About = () => {
