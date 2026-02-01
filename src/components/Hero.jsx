@@ -34,7 +34,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               className="pb-4 text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-center lg:text-left"
-              style={{ color: '#40E0D0', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              style={{ color: '#2965F1', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               Hey! I'm
             </motion.div>
@@ -43,8 +43,8 @@ const Hero = () => {
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="pb-8 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-center lg:text-left glow-text"
-              style={{ color: '#40E0D0', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              className="pb-8 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-center lg:text-left glow-text whitespace-nowrap"
+              style={{ color: '#2965F1', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               {!isTyped ? (
                 <Typewriter
@@ -71,7 +71,8 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="animated-gradient text-2xl sm:text-3xl tracking-tight font-medium"
+              className="text-2xl sm:text-3xl tracking-tight font-medium"
+              style={{ color: '#2965F1' }}
             >
               Full Stack Developer
             </motion.span>
@@ -134,7 +135,7 @@ const Hero = () => {
               transition={{ duration: 1, delay: 1.2 }}
               src={profilePic}
               alt="Hardhik Atchakala"
-              className="w-64 sm:w-80 lg:w-96 mt-10"
+              className="w-64 sm:w-80 lg:w-96 mt-10 profile-glow cursor-pointer"
             />
           </div>
         </div>
