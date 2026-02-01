@@ -27,13 +27,11 @@ const App = () => {
         </Element>
 
         {/* About section */}
-        <Element name="about" className="pt-24 pb-16" id="about-section">
+        <Element name="about" className="border-b-2 border-[#2965F1] pb-24" id="about-section">
           <div className="md:-mt-20 md:pt-20">
             <About />
           </div>
         </Element>
-
-        <div className="h-[2px] w-full bg-[#2965F1] mb-20"></div>
 
         {/* Experience section */}
         <Element name="experience" className="border-b-2 border-[#2965F1] pb-24">

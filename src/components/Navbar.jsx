@@ -58,10 +58,8 @@ const Navbar = () => {
           smooth={true} 
           duration={500} 
           className={navLinkClass}
-          onClick={(e) => {
-            if (window.scrollY < 100) {
-              e.preventDefault();
-            }
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
           Home
