@@ -70,7 +70,7 @@ const Experience = () => {
         Experience
       </motion.h2>
 
-      <div className="flex flex-col lg:flex-row gap-8 relative">
+      <div className="flex flex-col lg:flex-row gap-8 relative lg:items-start">
         {/* Details Panel - Left Side */}
         <AnimatePresence>
           {selectedExperience !== null && (
@@ -80,7 +80,7 @@ const Experience = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-2/3 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30"
+              className="w-full lg:w-2/3 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 h-fit"
             >
               {/* Close Button */}
               <button
