@@ -47,12 +47,14 @@ const Experience = () => {
   // Calculate transform to center details panel with selected experience
   React.useEffect(() => {
     if (selectedExperience !== null && experienceRefs[selectedExperience].current && detailsPanelRef.current && window.innerWidth >= 1024) {
-      const experienceRect = experienceRefs[selectedExperience].current.getBoundingClientRect();
-      const detailsRect = detailsPanelRef.current.getBoundingClientRect();
-      const experienceCenter = experienceRect.top + experienceRect.height / 2;
-      const detailsCenter = detailsRect.height / 2;
-      const translateY = experienceCenter - detailsCenter - detailsRect.top;
-      detailsPanelRef.current.style.transform = `translateY(${translateY}px)`;
+      setTimeout(() => {
+        const experienceRect = experienceRefs[selectedExperience].current.getBoundingClientRect();
+        const detailsRect = detailsPanelRef.current.getBoundingClientRect();
+        const experienceCenter = experienceRect.top + experienceRect.height / 2;
+        const detailsCenter = detailsRect.height / 2;
+        const translateY = experienceCenter - detailsCenter - detailsRect.top;
+        detailsPanelRef.current.style.transform = `translateY(${translateY}px)`;
+      }, 100);
     }
   }, [selectedExperience]);
 
@@ -79,7 +81,6 @@ const Experience = () => {
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
               className="w-full lg:w-2/3 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30"
-              style={{ minHeight: '200px' }}
             >
               {/* Close Button */}
               <button
