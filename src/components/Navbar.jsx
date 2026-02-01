@@ -27,7 +27,7 @@ const Navbar = () => {
     "relative text-base text-white transition-all duration-200 cursor-pointer hover:text-[#2965F1] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#2965F1] after:transition-all after:duration-200";
 
   return (
-    <nav className="mb-20 flex items-center justify-between py-6">
+    <nav className="sticky top-0 z-50 mb-20 flex items-center justify-between py-6 px-4 backdrop-blur-md bg-[#0a0a1f]/80">
       <div className="flex flex-shrink-0 items-center">
         {/* Logo - Refresh page when clicked */}
         <button
@@ -68,18 +68,24 @@ const Navbar = () => {
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="absolute top-16 right-4 bg-transparent text-white w-40 px-4 py-4 space-y-4 shadow-lg rounded-lg"
+          className="absolute top-16 right-4 backdrop-blur-md bg-[#0a0a1f]/95 text-white w-48 px-6 py-6 space-y-4 shadow-2xl rounded-lg border border-[#2965F1]/30"
         >
-          {["hero", "about", "experience", "projects", "contact"].map((section) => (
+          {[
+            { id: "hero", label: "Home" },
+            { id: "about", label: "About Me" },
+            { id: "experience", label: "Experience" },
+            { id: "projects", label: "Projects" },
+            { id: "contact", label: "Contact" }
+          ].map((section) => (
             <Link
-              key={section}
-              to={section}
+              key={section.id}
+              to={section.id}
               smooth={true}
               duration={500}
-              className="block text-base transition-colors duration-200 hover:bg-[#2965F1] hover:text-white p-2 rounded text-right cursor-pointer"
+              className="block text-base transition-all duration-200 hover:text-[#2965F1] p-2 rounded text-right cursor-pointer hover:bg-[#2965F1]/20"
               onClick={toggleMenu}
             >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+              {section.label}
             </Link>
           ))}
         </div>

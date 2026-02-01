@@ -24,7 +24,7 @@ const skillsIcons = [
 const About = () => {
   return (
     <div className="pb-16">
-      <h2 className="my-10 text-center text-4xl">About Me</h2>
+      <h2 className="my-10 text-center text-4xl font-bold" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>About Me</h2>
       <div className="flex justify-center">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +41,8 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="my-10 text-center text-4xl"
+        className="my-10 text-center text-4xl font-bold"
+        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
       >
         Skills
       </motion.h2>
@@ -52,7 +53,7 @@ const About = () => {
           animate={{ x: ["0%", "-100%"] }}
           transition={{
             ease: "linear",
-            duration: 25,
+            duration: window.innerWidth < 768 ? 15 : 25,
             repeat: Infinity,
           }}
           style={{ whiteSpace: "nowrap" }}
