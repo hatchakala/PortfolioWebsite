@@ -1,6 +1,7 @@
 import { EXPERIENCES } from "../constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import React from "react";
 import { FaTimes } from "react-icons/fa";
 import ColgateLogo from "../assets/experiences/ColgatePalmoliveLogo.png";
 import ColgateDetails from "../assets/experiences/ColgateDetailsPicture.png";
@@ -8,6 +9,7 @@ import NasaLogo from "../assets/experiences/NasaLogo.png";
 import RutgersLogo from "../assets/experiences/RutgersLogo.png";
 import PrincetonLogo from "../assets/experiences/PrincetonLearningExperienceLogo.png";
 import SteelCityLogo from "../assets/experiences/SteelCityCodesLogo.png";
+import KumonLogo from "../assets/experiences/KumonLogo.png";
 
 const experienceLogos = [
   NasaLogo,        // NASA
@@ -16,7 +18,7 @@ const experienceLogos = [
   RutgersLogo,     // Learning Assistant
   PrincetonLogo,   // Princeton Learning Experience
   SteelCityLogo,   // Steel City Codes
-  null,            // Kumon (no logo)
+  KumonLogo,       // Kumon
 ];
 
 const experienceDetailImages = [
@@ -31,9 +33,18 @@ const experienceDetailImages = [
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
+  const [detailsTopPosition, setDetailsTopPosition] = useState(0);
+  const experienceRefs = EXPERIENCES.map(() => React.useRef(null));
 
-  const handleExperienceClick = (index) => {
+  const handleExperienceClick = (index, ref) => {
     setSelectedExperience(index);
+    if (ref.current && window.innerWidth >= 1024) {
+      const rect = ref.current.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setDetailsTopPosition(rect.top + scrollTop - 100);
+    } else {
+      setDetailsTopPosition(0);
+    }
   };
 
   const handleClose = () => {
@@ -61,8 +72,11 @@ const Experience = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-1/2 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 relative"
-              style={{ maxHeight: '80vh', overflowY: 'auto' }}
+              className="w-full lg:w-1/2 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 relative lg:absolute lg:left-0"
+              style={{ 
+                top: window.innerWidth >= 1024 ? `${detailsTopPosition}px` : 'auto',
+                minHeight: '200px'
+              }}
             >
               {/* Close Button */}
               <button
@@ -129,6 +143,7 @@ const Experience = () => {
           {EXPERIENCES.map((experience, index) => (
             <motion.div
               key={index}
+              ref={experienceRefs[index]}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -140,7 +155,7 @@ const Experience = () => {
               <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  onClick={() => handleExperienceClick(index)}
+                  onClick={() => handleExperienceClick(index, experienceRefs[index])}
                   className={`cursor-pointer p-3 rounded-xl border-2 transition-all duration-300 ${
                     selectedExperience === index 
                       ? 'border-[#2965F1] bg-[#2965F1]/20 shadow-lg shadow-[#2965F1]/50' 
