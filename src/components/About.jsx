@@ -30,7 +30,7 @@ const skillsData = [
 
 const About = () => {
   return (
-    <div className="pb-16">
+    <div className="pb-4">
       <h2 className="my-10 text-center text-4xl font-bold" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>About Me</h2>
       <div className="flex justify-center">
         <motion.div
@@ -48,7 +48,7 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="my-10 text-center text-4xl font-bold"
+        className="my-16 text-center text-4xl font-bold"
         style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
       >
         Skills
