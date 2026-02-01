@@ -44,7 +44,7 @@ const Experience = () => {
     setSelectedExperience(null);
   };
 
-  // Calculate transform to center details panel with selected experience
+  // Calculate transform to align details panel with selected experience
   React.useEffect(() => {
     if (selectedExperience !== null && experienceRefs[selectedExperience].current && detailsPanelRef.current && window.innerWidth >= 1024) {
       setTimeout(() => {
@@ -52,7 +52,14 @@ const Experience = () => {
         const detailsRect = detailsPanelRef.current.getBoundingClientRect();
         const experienceCenter = experienceRect.top + experienceRect.height / 2;
         const detailsCenter = detailsRect.height / 2;
-        const translateY = experienceCenter - detailsCenter - detailsRect.top;
+        let translateY = experienceCenter - detailsCenter - detailsRect.top;
+        
+        // Ensure details panel doesn't go above the experience box (for top items like NASA)
+        const minTranslateY = experienceRect.top - detailsRect.top;
+        if (translateY < minTranslateY) {
+          translateY = minTranslateY;
+        }
+        
         detailsPanelRef.current.style.transform = `translateY(${translateY}px)`;
       }, 100);
     }
@@ -76,16 +83,16 @@ const Experience = () => {
           {selectedExperience !== null && (
             <motion.div
               ref={detailsPanelRef}
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -100, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -100, scale: 0.95 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-2/3 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 h-fit"
+              className="fixed lg:relative inset-4 lg:inset-auto z-50 lg:z-auto lg:w-2/3 backdrop-blur-lg bg-[#0a0a1f]/95 lg:bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 h-fit max-h-[90vh] lg:max-h-none overflow-y-auto"
             >
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-white hover:text-[#2965F1] transition-colors duration-200"
+                className="absolute top-4 right-4 text-white hover:text-[#2965F1] transition-colors duration-200 z-10"
               >
                 <FaTimes size={24} />
               </button>
@@ -119,11 +126,11 @@ const Experience = () => {
 
                 {/* Picture - Only show if image exists */}
                 {experienceDetailImages[selectedExperience] && (
-                  <div className="w-full">
+                  <div className="w-full flex justify-center">
                     <img 
                       src={experienceDetailImages[selectedExperience]} 
                       alt="Experience details"
-                      className="w-full h-auto rounded-xl border-2 border-[#2965F1]/20 object-cover"
+                      className="w-3/4 lg:w-2/3 h-auto rounded-xl border-2 border-[#2965F1]/20 object-cover"
                     />
                   </div>
                 )}
@@ -180,9 +187,9 @@ const Experience = () => {
                     </div>
                   )}
                   
-                  <h4 className="font-bold text-white mb-1 text-xs lg:text-sm">{experience.role}</h4>
-                  <p className="text-xs text-neutral-400 line-clamp-2">{experience.company}</p>
-                  <p className="text-xs text-neutral-500 mt-1">{experience.year}</p>
+                  <h4 className="font-bold text-white mb-1 text-xs lg:text-sm break-words">{experience.role}</h4>
+                  <p className="text-xs text-neutral-400 line-clamp-2 break-words">{experience.company}</p>
+                  <p className="text-xs text-neutral-500 mt-1 break-words">{experience.year}</p>
                 </motion.div>
               </div>
 
