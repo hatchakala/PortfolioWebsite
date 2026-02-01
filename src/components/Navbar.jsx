@@ -5,9 +5,20 @@ import logo from "../assets/HardhikNavBar.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close the menu when clicking outside
   useEffect(() => {
@@ -27,12 +38,14 @@ const Navbar = () => {
     "relative text-base text-white transition-all duration-200 cursor-pointer hover:text-[#2965F1] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#2965F1] after:transition-all after:duration-200";
 
   return (
-    <nav className="sticky top-0 z-50 mb-20 flex items-center justify-between py-6 px-4 backdrop-blur-md bg-[#0a0a1f]/80">
+    <nav className={`md:sticky md:top-0 z-50 mb-20 flex items-center justify-between py-6 px-4 transition-all duration-300 ${
+      isScrolled ? 'backdrop-blur-lg bg-white/10 shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="flex flex-shrink-0 items-center">
         {/* Logo - Refresh page when clicked */}
         <button
           onClick={() => window.location.reload()}
-          className="mx-2 w-10 cursor-pointer"
+          className="mx-2 w-10 cursor-pointer transition-transform duration-300 hover:scale-110"
         >
           <img className="w-full" src={logo} alt="logo" />
         </button>
