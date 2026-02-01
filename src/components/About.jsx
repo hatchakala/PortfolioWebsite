@@ -8,17 +8,17 @@ import { DiRedis } from "react-icons/di";
 import { FaNodeJs, FaPython, FaJava } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 
-const skillsIcons = [
-  <RiReactjsLine className="text-7xl text-cyan-400" />,
-  <TbBrandNextjs className="text-7xl" />,
-  <SiMongodb className="text-7xl text-green-500" />,
-  <DiRedis className="text-7xl text-red-700" />,
-  <FaNodeJs className="text-7xl text-green-500" />,
-  <BiLogoPostgresql className="text-7xl text-sky-700" />,
-  <FaPython className="text-7xl text-yellow-400" />,
-  <FaJava className="text-7xl text-red-600" />,
-  <SiCss3 className="text-7xl text-blue-500" />,
-  <SiHtml5 className="text-7xl text-orange-500" />,
+const skillsData = [
+  { icon: <RiReactjsLine className="text-7xl text-cyan-400" />, name: "React" },
+  { icon: <TbBrandNextjs className="text-7xl" />, name: "Next.js" },
+  { icon: <SiMongodb className="text-7xl text-green-500" />, name: "MongoDB" },
+  { icon: <DiRedis className="text-7xl text-red-700" />, name: "Redis" },
+  { icon: <FaNodeJs className="text-7xl text-green-500" />, name: "Node.js" },
+  { icon: <BiLogoPostgresql className="text-7xl text-sky-700" />, name: "PostgreSQL" },
+  { icon: <FaPython className="text-7xl text-yellow-400" />, name: "Python" },
+  { icon: <FaJava className="text-7xl text-red-600" />, name: "Java" },
+  { icon: <SiCss3 className="text-7xl text-blue-500" />, name: "CSS3" },
+  { icon: <SiHtml5 className="text-7xl text-orange-500" />, name: "HTML5" },
 ];
 
 const About = () => {
@@ -58,14 +58,17 @@ const About = () => {
           }}
           style={{ whiteSpace: "nowrap" }}
         >
-          {[...skillsIcons, ...skillsIcons].map((icon, index) => (
+          {[...skillsData, ...skillsData].map((skill, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="rounded-2xl border-4 border-[#2965F1] p-4 min-w-[120px] flex justify-center items-center"
+              className="rounded-2xl border-4 border-[#2965F1] p-4 min-w-[120px] flex flex-col justify-center items-center gap-3"
             >
-              {icon}
+              {skill.icon}
+              <span className="text-sm font-medium text-[#2965F1]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+                {skill.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>
