@@ -18,6 +18,8 @@ const App = () => {
       <Navbar />
 
       <div className="container mx-auto px-8">
+        {/* Spacer for fixed navbar on desktop */}
+        <div className="hidden md:block h-20"></div>
 
         {/* Hero section */}
         <Element name="hero" className="border-b-2 border-[#2965F1] pb-2">
