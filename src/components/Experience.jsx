@@ -1,9 +1,21 @@
 import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const Experience = () => {
+  const [selectedExperience, setSelectedExperience] = useState(null);
+
+  const handleExperienceClick = (index) => {
+    setSelectedExperience(index);
+  };
+
+  const handleClose = () => {
+    setSelectedExperience(null);
+  };
+
   return (
-    <div className="pb-4">
+    <div className="pb-4 relative">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -13,49 +25,123 @@ const Experience = () => {
       >
         Experience
       </motion.h2>
-      <div>
-        {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+
+      <div className="flex flex-col lg:flex-row gap-8 relative min-h-[600px]">
+        {/* Details Panel - Left Side */}
+        <AnimatePresence>
+          {selectedExperience !== null && (
             <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-1/4"
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+              className="w-full lg:w-1/2 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 relative"
             >
-              <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
-            </motion.div>
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/4"
-            >
-              <h6 className="mb-2 font-semibold">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
-                  {experience.company}
-                </span>
-              </h6>
-              <ul className="mb-4 text-neutral-400">
-                {experience.description.split("\n").map((line, i) => (
-                  <li key={i} className="list-disc ml-5">
-                    {line.trim()}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2">
-                {experience.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="rounded bg-[#2965F1] px-2 py-1 text-sm font-medium text-white"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Close Button */}
+              <button
+                onClick={handleClose}
+                className="absolute top-4 right-4 text-white hover:text-[#2965F1] transition-colors duration-200"
+              >
+                <FaTimes size={24} />
+              </button>
+
+              {/* Content */}
+              <div className="mt-4">
+                <h3 className="text-2xl lg:text-3xl font-bold text-[#2965F1] mb-2" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+                  {EXPERIENCES[selectedExperience].role}
+                </h3>
+                <p className="text-sm text-neutral-400 mb-2">{EXPERIENCES[selectedExperience].year}</p>
+                <p className="text-lg text-purple-100 mb-4">{EXPERIENCES[selectedExperience].company}</p>
+                
+                {/* Description */}
+                <div className="text-neutral-300 mb-6 space-y-2">
+                  {EXPERIENCES[selectedExperience].description.split("\n").map((line, i) => (
+                    <p key={i} className="leading-relaxed">{line.trim()}</p>
+                  ))}
+                </div>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {EXPERIENCES[selectedExperience].technologies.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="rounded bg-[#2965F1] px-3 py-1 text-sm font-medium text-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Picture Placeholder */}
+                <div className="w-full h-48 bg-neutral-800/50 rounded-xl border-2 border-[#2965F1]/20 flex items-center justify-center text-neutral-500">
+                  Image Placeholder
+                </div>
               </div>
             </motion.div>
-          </div>
-        ))}
+          )}
+        </AnimatePresence>
+
+        {/* Timeline - Center/Right Side */}
+        <motion.div
+          animate={{
+            marginLeft: selectedExperience !== null ? (window.innerWidth >= 1024 ? "0" : "0") : "auto",
+            marginRight: selectedExperience !== null ? (window.innerWidth >= 1024 ? "0" : "0") : "auto",
+          }}
+          transition={{ duration: 0.5 }}
+          className={`${selectedExperience !== null ? 'w-full lg:w-1/2' : 'w-full lg:w-2/3'} relative`}
+        >
+          {/* Vertical Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#2965F1]/30 hidden lg:block"></div>
+
+          {EXPERIENCES.map((experience, index) => (
+            <motion.div
+              key={index}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`mb-12 flex items-center ${
+                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+              } flex-col lg:gap-8`}
+            >
+              {/* Content Card */}
+              <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => handleExperienceClick(index)}
+                  className={`cursor-pointer p-4 rounded-xl border-2 transition-all duration-300 ${
+                    selectedExperience === index 
+                      ? 'border-[#2965F1] bg-[#2965F1]/20 shadow-lg shadow-[#2965F1]/50' 
+                      : 'border-[#2965F1]/30 bg-white/5 hover:border-[#2965F1]/60'
+                  }`}
+                >
+                  {/* Logo Placeholder */}
+                  <div className="w-16 h-16 bg-neutral-800/50 rounded-lg border-2 border-[#2965F1]/20 flex items-center justify-center text-xs text-neutral-500 mb-3 mx-auto lg:mx-0">
+                    Logo
+                  </div>
+                  
+                  <h4 className="font-bold text-white mb-1 text-sm lg:text-base">{experience.role}</h4>
+                  <p className="text-xs lg:text-sm text-neutral-400">{experience.company}</p>
+                  <p className="text-xs text-neutral-500 mt-1">{experience.year}</p>
+                </motion.div>
+              </div>
+
+              {/* Timeline Node */}
+              <div className="hidden lg:flex items-center justify-center w-2/12">
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  className={`w-4 h-4 rounded-full border-4 transition-all duration-300 ${
+                    selectedExperience === index 
+                      ? 'border-[#2965F1] bg-[#2965F1] shadow-lg shadow-[#2965F1]/50' 
+                      : 'border-[#2965F1]/50 bg-neutral-900'
+                  }`}
+                ></motion.div>
+              </div>
+
+              {/* Spacer for alternating layout */}
+              <div className="hidden lg:block w-5/12"></div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
