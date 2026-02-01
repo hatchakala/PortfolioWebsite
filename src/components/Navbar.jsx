@@ -38,14 +38,14 @@ const Navbar = () => {
     "relative text-base text-white transition-all duration-200 cursor-pointer hover:text-[#2965F1] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#2965F1] after:transition-all after:duration-200";
 
   return (
-    <nav className={`md:fixed md:top-0 md:left-0 md:right-0 z-50 mb-20 md:mb-0 flex items-center justify-between py-6 px-8 transition-all duration-300 ${
+    <nav className={`md:fixed md:top-0 md:left-0 md:right-0 z-50 mb-20 md:mb-0 flex items-center justify-between py-4 px-8 transition-all duration-300 ${
       isScrolled ? 'backdrop-blur-lg bg-white/10 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="flex flex-shrink-0 items-center">
         {/* Logo - Refresh page when clicked */}
         <button
           onClick={() => window.location.reload()}
-          className="mx-2 w-10 cursor-pointer transition-transform duration-300 hover:scale-110"
+          className="mx-2 w-9 cursor-pointer transition-transform duration-300 hover:scale-110"
         >
           <img className="w-full" src={logo} alt="logo" />
         </button>
@@ -53,19 +53,29 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-8">
-        <Link to="hero" smooth={true} duration={500} className={navLinkClass}>
+        <Link 
+          to="hero" 
+          smooth={true} 
+          duration={500} 
+          className={navLinkClass}
+          onClick={(e) => {
+            if (window.scrollY < 100) {
+              e.preventDefault();
+            }
+          }}
+        >
           Home
         </Link>
-        <Link to="about" smooth={true} duration={500} className={navLinkClass}>
+        <Link to="about" smooth={true} duration={500} offset={-80} className={navLinkClass}>
           About Me
         </Link>
-        <Link to="experience" smooth={true} duration={500} className={navLinkClass}>
+        <Link to="experience" smooth={true} duration={500} offset={-80} className={navLinkClass}>
           Experience
         </Link>
-        <Link to="projects" smooth={true} duration={500} className={navLinkClass}>
+        <Link to="projects" smooth={true} duration={500} offset={-80} className={navLinkClass}>
           Projects
         </Link>
-        <Link to="contact" smooth={true} duration={500} className={navLinkClass}>
+        <Link to="contact" smooth={true} duration={500} offset={-80} className={navLinkClass}>
           Contact
         </Link>
       </div>

@@ -17,7 +17,7 @@ const App = () => {
       {/* Navbar outside container so it can be full-width fixed */}
       <Navbar />
 
-      <div className="container mx-auto px-8 md:pt-24">
+      <div className="container mx-auto px-8">
 
         {/* Hero section */}
         <Element name="hero" className="border-b-2 border-[#2965F1] pb-2">
@@ -25,25 +25,33 @@ const App = () => {
         </Element>
 
         {/* About section */}
-        <Element name="about" className="pt-24 pb-16">
-          <About />
+        <Element name="about" className="pt-24 pb-16" id="about-section">
+          <div className="md:-mt-20 md:pt-20">
+            <About />
+          </div>
         </Element>
 
         <div className="h-[2px] w-full bg-[#2965F1] mb-20"></div>
 
         {/* Experience section */}
         <Element name="experience" className="border-b-2 border-[#2965F1] pb-24">
-          <Experience />
+          <div className="md:-mt-20 md:pt-20">
+            <Experience />
+          </div>
         </Element>
 
         {/* Projects section */}
         <Element name="projects" className="border-b-2 border-[#2965F1] pb-24">
-          <Projects />
+          <div className="md:-mt-20 md:pt-20">
+            <Projects />
+          </div>
         </Element>
 
         {/* Contact section */}
         <Element name="contact" className="border-b-2 border-[#2965F1] pb-24">
-          <Contact />
+          <div className="md:-mt-20 md:pt-20">
+            <Contact />
+          </div>
         </Element>
 
         {/* Footer */}
