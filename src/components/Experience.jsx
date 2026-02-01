@@ -2,6 +2,32 @@ import { EXPERIENCES } from "../constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import ColgateLogo from "../assets/experiences/ColgatePalmoliveLogo.png";
+import ColgateDetails from "../assets/experiences/ColgateDetailsPicture.png";
+import NasaLogo from "../assets/experiences/NasaLogo.png";
+import RutgersLogo from "../assets/experiences/RutgersLogo.png";
+import PrincetonLogo from "../assets/experiences/PrincetonLearningExperienceLogo.png";
+import SteelCityLogo from "../assets/experiences/SteelCityCodesLogo.png";
+
+const experienceLogos = [
+  NasaLogo,        // NASA
+  RutgersLogo,     // Agentic AI Research Assistant
+  ColgateLogo,     // Colgate-Palmolive
+  RutgersLogo,     // Learning Assistant
+  PrincetonLogo,   // Princeton Learning Experience
+  SteelCityLogo,   // Steel City Codes
+  null,            // Kumon (no logo)
+];
+
+const experienceDetailImages = [
+  null,            // NASA
+  null,            // Agentic AI Research Assistant
+  ColgateDetails,  // Colgate-Palmolive
+  null,            // Learning Assistant
+  null,            // Princeton Learning Experience
+  null,            // Steel City Codes
+  null,            // Kumon
+];
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
@@ -36,6 +62,7 @@ const Experience = () => {
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
               className="w-full lg:w-1/2 backdrop-blur-lg bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 relative"
+              style={{ maxHeight: '80vh', overflowY: 'auto' }}
             >
               {/* Close Button */}
               <button
@@ -72,10 +99,16 @@ const Experience = () => {
                   ))}
                 </div>
 
-                {/* Picture Placeholder */}
-                <div className="w-full h-48 bg-neutral-800/50 rounded-xl border-2 border-[#2965F1]/20 flex items-center justify-center text-neutral-500">
-                  Image Placeholder
-                </div>
+                {/* Picture - Only show if image exists */}
+                {experienceDetailImages[selectedExperience] && (
+                  <div className="w-full">
+                    <img 
+                      src={experienceDetailImages[selectedExperience]} 
+                      alt="Experience details"
+                      className="w-full h-auto rounded-xl border-2 border-[#2965F1]/20 object-cover"
+                    />
+                  </div>
+                )}
               </div>
             </motion.div>
           )}
@@ -99,7 +132,7 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`mb-12 flex items-center ${
+              className={`mb-8 flex items-center ${
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } flex-col lg:gap-8`}
             >
@@ -108,19 +141,29 @@ const Experience = () => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   onClick={() => handleExperienceClick(index)}
-                  className={`cursor-pointer p-4 rounded-xl border-2 transition-all duration-300 ${
+                  className={`cursor-pointer p-3 rounded-xl border-2 transition-all duration-300 ${
                     selectedExperience === index 
                       ? 'border-[#2965F1] bg-[#2965F1]/20 shadow-lg shadow-[#2965F1]/50' 
                       : 'border-[#2965F1]/30 bg-white/5 hover:border-[#2965F1]/60'
                   }`}
                 >
-                  {/* Logo Placeholder */}
-                  <div className="w-16 h-16 bg-neutral-800/50 rounded-lg border-2 border-[#2965F1]/20 flex items-center justify-center text-xs text-neutral-500 mb-3 mx-auto lg:mx-0">
-                    Logo
-                  </div>
+                  {/* Logo */}
+                  {experienceLogos[index] ? (
+                    <div className={`w-12 h-12 rounded-lg overflow-hidden mb-2 ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'} mx-auto lg:mx-0`}>
+                      <img 
+                        src={experienceLogos[index]} 
+                        alt={`${experience.company} logo`}
+                        className="w-full h-full object-contain bg-white/90 p-1 rounded-lg"
+                      />
+                    </div>
+                  ) : (
+                    <div className={`w-12 h-12 bg-neutral-800/50 rounded-lg border-2 border-[#2965F1]/20 flex items-center justify-center text-xs text-neutral-500 mb-2 ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'} mx-auto lg:mx-0`}>
+                      Logo
+                    </div>
+                  )}
                   
-                  <h4 className="font-bold text-white mb-1 text-sm lg:text-base">{experience.role}</h4>
-                  <p className="text-xs lg:text-sm text-neutral-400">{experience.company}</p>
+                  <h4 className="font-bold text-white mb-1 text-xs lg:text-sm">{experience.role}</h4>
+                  <p className="text-xs text-neutral-400 line-clamp-2">{experience.company}</p>
                   <p className="text-xs text-neutral-500 mt-1">{experience.year}</p>
                 </motion.div>
               </div>

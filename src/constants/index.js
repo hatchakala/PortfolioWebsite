@@ -24,7 +24,7 @@ export const EXPERIENCES = [
     technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
   },
   {
-    year: "September 2025 - Present",
+    year: "September 2025 - December 2025",
     role: "Lead Software Extern",
   company: "Colgate-Palmolive via Rutgers MBS Externship Exchange",
     description: `Led the software team in building an LLM-powered RAG-based Q&A system with Python, LangChain, PostgreSQL (pgvector), Gemini API, and Kubernetes to parse complex regulations and reduce manual review, within an Agile team environment.
