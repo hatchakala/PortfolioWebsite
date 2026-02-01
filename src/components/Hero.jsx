@@ -34,6 +34,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               className="pb-4 text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-center lg:text-left"
+              style={{ color: '#40E0D0', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               Hey! I'm
             </motion.div>
@@ -42,7 +43,8 @@ const Hero = () => {
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="pb-8 text-5xl sm:text-6xl lg:text-7xl font-thin tracking-tight text-center lg:text-left"
+              className="pb-8 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-center lg:text-left glow-text"
+              style={{ color: '#40E0D0', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               {!isTyped ? (
                 <Typewriter
@@ -69,7 +71,7 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl sm:text-3xl tracking-tight text-transparent"
+              className="animated-gradient text-2xl sm:text-3xl tracking-tight font-medium"
             >
               Full Stack Developer
             </motion.span>

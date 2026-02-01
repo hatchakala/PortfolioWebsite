@@ -7,3 +7,52 @@
 :root {
   font-family: "Inter", sans-serif;
 }
+
+/* Pulsing glow effect for name */
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(64, 224, 208, 0.5),
+                 0 0 20px rgba(64, 224, 208, 0.4),
+                 0 0 30px rgba(64, 224, 208, 0.3),
+                 0 0 40px rgba(64, 224, 208, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(64, 224, 208, 0.8),
+                 0 0 30px rgba(64, 224, 208, 0.6),
+                 0 0 40px rgba(64, 224, 208, 0.5),
+                 0 0 60px rgba(64, 224, 208, 0.3);
+  }
+}
+
+.glow-text {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Animated gradient for Full Stack Developer */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    90deg,
+    #40E0D0,
+    #00D9FF,
+    #8B5CF6,
+    #EC4899,
+    #40E0D0
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
