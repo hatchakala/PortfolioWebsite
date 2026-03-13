@@ -33,36 +33,119 @@ const experienceDetailImages = [
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
-  const experienceRefs = EXPERIENCES.map(() => React.useRef(null));
+  const [detailsPanelTop, setDetailsPanelTop] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth >= 1024 : false
+  );
+  const layoutRef = React.useRef(null);
+  const experienceRefs = React.useRef([]);
   const detailsPanelRef = React.useRef(null);
 
   const handleExperienceClick = (index) => {
-    setSelectedExperience(index);
+    setSelectedExperience((current) => (current === index ? null : index));
   };
 
   const handleClose = () => {
     setSelectedExperience(null);
+    setDetailsPanelTop(0);
   };
 
-  // Calculate transform to align details panel with selected experience
   React.useEffect(() => {
-    if (selectedExperience !== null && experienceRefs[selectedExperience].current && detailsPanelRef.current && window.innerWidth >= 1024) {
-      setTimeout(() => {
-        const experienceRect = experienceRefs[selectedExperience].current.getBoundingClientRect();
-        const detailsRect = detailsPanelRef.current.getBoundingClientRect();
-        const experienceCenter = experienceRect.top + experienceRect.height / 2;
-        const detailsCenter = detailsRect.height / 2;
-        let translateY = experienceCenter - detailsCenter - detailsRect.top;
-        
-        // Ensure details panel doesn't go above the experience box (for top items like NASA)
-        const minTranslateY = experienceRect.top - detailsRect.top;
-        if (translateY < minTranslateY) {
-          translateY = minTranslateY;
-        }
-        
-        detailsPanelRef.current.style.transform = `translateY(${translateY}px)`;
-      }, 100);
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const updateDetailsPanelPosition = React.useCallback(() => {
+    if (!isDesktop || selectedExperience === null) {
+      setDetailsPanelTop(0);
+      return;
     }
+
+    const layoutElement = layoutRef.current;
+    const selectedCard = experienceRefs.current[selectedExperience];
+    const detailsPanel = detailsPanelRef.current;
+
+    if (!layoutElement || !selectedCard || !detailsPanel) {
+      return;
+    }
+
+    const layoutRect = layoutElement.getBoundingClientRect();
+    const cardRect = selectedCard.getBoundingClientRect();
+    const nextTop = cardRect.top - layoutRect.top;
+    const maxTop = Math.max(0, layoutElement.offsetHeight - detailsPanel.offsetHeight);
+
+    setDetailsPanelTop(Math.min(Math.max(0, nextTop), maxTop));
+  }, [isDesktop, selectedExperience]);
+
+  React.useLayoutEffect(() => {
+    if (selectedExperience === null) {
+      setDetailsPanelTop(0);
+      return;
+    }
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      updateDetailsPanelPosition();
+    });
+
+    const timeoutId = window.setTimeout(() => {
+      updateDetailsPanelPosition();
+    }, 250);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(timeoutId);
+    };
+  }, [selectedExperience, updateDetailsPanelPosition]);
+
+  React.useEffect(() => {
+    if (selectedExperience === null || !isDesktop) {
+      return;
+    }
+
+    const handleWindowResize = () => {
+      updateDetailsPanelPosition();
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [isDesktop, selectedExperience, updateDetailsPanelPosition]);
+
+  React.useEffect(() => {
+    if (selectedExperience === null) {
+      return;
+    }
+
+    const handlePointerDown = (event) => {
+      const detailsPanel = detailsPanelRef.current;
+      const clickedOnExperience = experienceRefs.current.some(
+        (card) => card && card.contains(event.target)
+      );
+
+      if (detailsPanel?.contains(event.target) || clickedOnExperience) {
+        return;
+      }
+
+      handleClose();
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
   }, [selectedExperience]);
 
   return (
@@ -77,17 +160,17 @@ const Experience = () => {
         Experience
       </motion.h2>
 
-      <div className="flex flex-col lg:flex-row gap-8 relative lg:items-start">
-        {/* Details Panel - Left Side */}
+      <div ref={layoutRef} className="relative flex flex-col gap-8 lg:min-h-[40rem]">
         <AnimatePresence>
           {selectedExperience !== null && (
             <motion.div
               ref={detailsPanelRef}
-              initial={{ opacity: 0, x: -100, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -100, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-              className="fixed lg:relative inset-4 lg:inset-auto z-50 lg:z-auto lg:w-2/3 backdrop-blur-lg bg-[#0a0a1f]/95 lg:bg-white/10 rounded-2xl p-6 lg:p-8 border border-[#2965F1]/30 h-fit max-h-[90vh] lg:max-h-none overflow-y-auto"
+              initial={isDesktop ? { opacity: 0, x: -60, scale: 0.97 } : { opacity: 0, y: 24, scale: 0.97 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              exit={isDesktop ? { opacity: 0, x: -60, scale: 0.97 } : { opacity: 0, y: 24, scale: 0.97 }}
+              transition={{ duration: 0.35 }}
+              style={isDesktop ? { top: detailsPanelTop } : undefined}
+              className="fixed inset-4 z-50 h-fit max-h-[90vh] overflow-y-auto rounded-2xl border border-[#2965F1]/30 bg-[#0a0a1f]/95 p-6 backdrop-blur-lg lg:absolute lg:left-0 lg:inset-auto lg:z-20 lg:w-[56%] lg:max-w-3xl lg:max-h-none lg:bg-white/10 lg:p-8"
             >
               {/* Close Button */}
               <button
@@ -130,6 +213,7 @@ const Experience = () => {
                     <img 
                       src={experienceDetailImages[selectedExperience]} 
                       alt="Experience details"
+                      onLoad={updateDetailsPanelPosition}
                       className="w-3/4 lg:w-2/3 h-auto rounded-xl border-2 border-[#2965F1]/20 object-cover"
                     />
                   </div>
@@ -139,13 +223,16 @@ const Experience = () => {
           )}
         </AnimatePresence>
 
-        {/* Timeline - Center/Right Side */}
         <motion.div
           animate={{
-            width: selectedExperience !== null ? (window.innerWidth >= 1024 ? '33.333%' : '100%') : (window.innerWidth >= 1024 ? '66.666%' : '100%'),
+            width: isDesktop
+              ? selectedExperience !== null
+                ? '40%'
+                : '66.666%'
+              : '100%',
           }}
-          transition={{ duration: 0.5 }}
-          className={`${selectedExperience !== null ? '' : 'mx-auto'} relative`}
+          transition={{ duration: 0.35 }}
+          className={`${selectedExperience !== null && isDesktop ? 'lg:ml-auto' : 'mx-auto'} relative w-full`}
         >
           {/* Vertical Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#2965F1]/30 hidden lg:block"></div>
@@ -153,7 +240,6 @@ const Experience = () => {
           {EXPERIENCES.map((experience, index) => (
             <motion.div
               key={index}
-              ref={experienceRefs[index]}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -164,6 +250,9 @@ const Experience = () => {
               {/* Content Card */}
               <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
                 <motion.div
+                  ref={(element) => {
+                    experienceRefs.current[index] = element;
+                  }}
                   whileHover={{ scale: 1.05 }}
                   onClick={() => handleExperienceClick(index)}
                   className={`cursor-pointer p-3 rounded-xl border-2 transition-all duration-300 ${

@@ -18,10 +18,10 @@ export const EXPERIENCES = [
   },
   {
     year: "October 2025 - Present",
-    role: "Agentic AI Research Assistant",
+    role: "Research Assistant - Agentic AI & Web Application Development",
   company: "Rutgers University Edward J. Bloustein School of Planning and Public Policy ",
     description: `Undergraduate Research Assistant for Dr. Jim Samuel, contributing to academic research on agentic AI systems and applications.`,
-    technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning"], 
+    technologies: ["Python", "Agentic AI", "Natural Language Processing (NLP)", "Machine Learning", "Web Development"], 
   },
   {
     year: "September 2025 - December 2025",
@@ -41,11 +41,11 @@ export const EXPERIENCES = [
   },
   {
     year: "December 2022 - July 2023",
-    role: "Computer Science Lead Manager",
+    role: "Course Instructor",
     company: "Princeton Learning Experience International School",
-    description: `Ran a hybrid summer camp directing 100+ volunteers and managers
+    description: `Assisted in running a hybrid summer camp directing 20+ volunteers and managers
       Created a curriculum for teaching Java and AI with a team of managers, tailoring content to suit beginner and advanced students
-      Built internal tools using web technologies (HTML, CSS, JavaScript) to manage registration and track progress, simplifying the management of 170+ students`,
+      Built internal tools using web technologies (HTML, CSS, JavaScript) to manage registration and track progress, simplifying the management of 80+ students`,
     technologies: ["Java", "Python", "Github", "VSCode"],
   },
   {
