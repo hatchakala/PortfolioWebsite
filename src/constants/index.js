@@ -40,15 +40,6 @@ export const EXPERIENCES = [
     technologies: ["Java", "VSCode", "OOP", "Communication", "Mentorship"], 
   },
   {
-    year: "December 2022 - July 2023",
-    role: "Computer Science Course Instructor",
-    company: "Princeton Learning Experience International School",
-    description: `Assisted in running a hybrid summer camp directing 20+ volunteers and managers
-      Created a curriculum for teaching Java and AI with a team of managers, tailoring content to suit beginner and advanced students
-      Built internal tools using web technologies (HTML, CSS, JavaScript) to manage registration and track progress, simplifying the management of 80+ students`,
-    technologies: ["Java", "Python", "Github", "VSCode"],
-  },
-  {
     year: "August 2023",
     role: "Project-Based Java Instructor",
     company: "Steel City Codes",

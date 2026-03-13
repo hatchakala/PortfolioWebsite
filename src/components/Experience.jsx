@@ -7,7 +7,6 @@ import ColgateLogo from "../assets/experiences/ColgatePalmoliveLogo.png";
 import ColgateDetails from "../assets/experiences/ColgateDetailsPicture.png";
 import NasaLogo from "../assets/experiences/NasaLogo.png";
 import RutgersLogo from "../assets/experiences/RutgersLogo.png";
-import PrincetonLogo from "../assets/experiences/PrincetonLearningExperienceLogo.png";
 import SteelCityLogo from "../assets/experiences/SteelCityCodesLogo.png";
 import KumonLogo from "../assets/experiences/KumonLogo.png";
 
@@ -16,7 +15,6 @@ const experienceLogos = [
   RutgersLogo,     // Agentic AI Research Assistant
   ColgateLogo,     // Colgate-Palmolive
   RutgersLogo,     // Learning Assistant
-  PrincetonLogo,   // Princeton Learning Experience
   SteelCityLogo,   // Steel City Codes
   KumonLogo,       // Kumon
 ];
@@ -26,7 +24,6 @@ const experienceDetailImages = [
   null,            // Agentic AI Research Assistant
   ColgateDetails,  // Colgate-Palmolive
   null,            // Learning Assistant
-  null,            // Princeton Learning Experience
   null,            // Steel City Codes
   null,            // Kumon
 ];
