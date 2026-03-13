@@ -41,7 +41,7 @@ export const EXPERIENCES = [
   },
   {
     year: "December 2022 - July 2023",
-    role: "Course Instructor",
+    role: "Computer Science Course Instructor",
     company: "Princeton Learning Experience International School",
     description: `Assisted in running a hybrid summer camp directing 20+ volunteers and managers
       Created a curriculum for teaching Java and AI with a team of managers, tailoring content to suit beginner and advanced students
