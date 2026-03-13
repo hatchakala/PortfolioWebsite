@@ -37,6 +37,8 @@ const Experience = () => {
   const layoutRef = React.useRef(null);
   const experienceRefs = React.useRef([]);
   const detailsPanelRef = React.useRef(null);
+  const selectedSide =
+    selectedExperience !== null && selectedExperience % 2 === 0 ? "left" : "right";
 
   const handleExperienceClick = (index) => {
     setSelectedExperience((current) => (current === index ? null : index));
@@ -162,12 +164,22 @@ const Experience = () => {
           {selectedExperience !== null && (
             <motion.div
               ref={detailsPanelRef}
-              initial={isDesktop ? { opacity: 0, x: -60, scale: 0.97 } : { opacity: 0, y: 24, scale: 0.97 }}
+              initial={
+                isDesktop
+                  ? { opacity: 0, x: selectedSide === "left" ? -60 : 60, scale: 0.97 }
+                  : { opacity: 0, y: 24, scale: 0.97 }
+              }
               animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-              exit={isDesktop ? { opacity: 0, x: -60, scale: 0.97 } : { opacity: 0, y: 24, scale: 0.97 }}
+              exit={
+                isDesktop
+                  ? { opacity: 0, x: selectedSide === "left" ? -60 : 60, scale: 0.97 }
+                  : { opacity: 0, y: 24, scale: 0.97 }
+              }
               transition={{ duration: 0.35 }}
               style={isDesktop ? { top: detailsPanelTop } : undefined}
-              className="fixed inset-4 z-50 h-fit max-h-[90vh] overflow-y-auto rounded-2xl border border-[#2965F1]/30 bg-[#0a0a1f]/95 p-6 backdrop-blur-lg lg:absolute lg:left-0 lg:inset-auto lg:z-20 lg:w-[56%] lg:max-w-3xl lg:max-h-none lg:bg-white/10 lg:p-8"
+              className={`fixed inset-4 z-50 h-fit max-h-[90vh] overflow-y-auto rounded-2xl border border-[#2965F1]/30 bg-[#0a0a1f]/95 p-6 backdrop-blur-lg lg:absolute lg:inset-auto lg:z-20 lg:w-[56%] lg:max-w-3xl lg:max-h-none lg:bg-white/10 lg:p-8 ${
+                selectedSide === "left" ? "lg:left-0" : "lg:right-0"
+              }`}
             >
               {/* Close Button */}
               <button
@@ -229,7 +241,13 @@ const Experience = () => {
               : '100%',
           }}
           transition={{ duration: 0.35 }}
-          className={`${selectedExperience !== null && isDesktop ? 'lg:ml-auto' : 'mx-auto'} relative w-full`}
+          className={`${
+            selectedExperience !== null && isDesktop
+              ? selectedSide === 'left'
+                ? 'lg:ml-auto'
+                : 'lg:mr-auto'
+              : 'mx-auto'
+          } relative w-full`}
         >
           {/* Vertical Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#2965F1]/30 hidden lg:block"></div>
